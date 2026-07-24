@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#06070d" />
+    <title>Connected IdealPlayer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="brand-panel" aria-label="IdealPlayer">
+        <div class="brand-lockup">
+          <img src="./assets/idealplayer-logo.png" alt="IdealPlayer" class="brand-logo" />
+          <div>
+            <p class="eyebrow">Connected IdealPlayer</p>
+            <h1>IdealPlayer</h1>
+          </div>
+        </div>
+
+        <div class="pairing-card">
+          <label for="pairingCode">TV kodu</label>
+          <div class="pairing-row">
+            <input id="pairingCode" class="code-input" inputmode="latin-prose" maxlength="8" autocomplete="one-time-code" placeholder="A7K9Q2BC" />
+            <div class="status-chip" id="pairingState">Bekliyor</div>
+          </div>
+        </div>
+
+        <div class="summary-grid" aria-label="Kurulum ozeti">
+          <div>
+            <strong>3</strong>
+            <span>Giriş tipi</span>
+          </div>
+          <div>
+            <strong>TV</strong>
+            <span>QR hazır</span>
+          </div>
+          <div>
+            <strong>SSL</strong>
+            <span>Form güvenli</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="setup-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Liste ekle</p>
+            <h2>Kaynak bilgileri</h2>
+          </div>
+          <button class="ghost-button" id="clearButton" type="button">Temizle</button>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Playlist tipi">
+          <button class="tab active" type="button" data-mode="xtream" role="tab" aria-selected="true">Xtream / Portal</button>
+          <button class="tab" type="button" data-mode="m3u" role="tab" aria-selected="false">M3U URL</button>
+          <button class="tab" type="button" data-mode="file" role="tab" aria-selected="false">M3U Dosya</button>
+        </div>
+
+        <form id="setupForm" novalidate>
+          <div class="form-grid">
+            <label class="field">
+              <span>Liste adı</span>
+              <input name="name" autocomplete="organization" placeholder="Oynatma Listem" required />
+            </label>
+
+            <label class="field optional-field">
+              <span>EPG URL</span>
+              <input name="epgUrl" inputmode="url" autocomplete="url" placeholder="https://example.com/epg.xml" />
+            </label>
+
+            <div class="mode-fields active" data-fields="xtream">
+              <label class="field wide">
+                <span>Sunucu URL</span>
+                <input name="serverUrl" inputmode="url" autocomplete="url" placeholder="https://portal.example.com" />
+              </label>
+              <label class="field">
+                <span>Kullanıcı adı</span>
+                <input name="username" autocomplete="username" placeholder="Kullanıcı" />
+              </label>
+              <label class="field">
+                <span>Şifre</span>
+                <input name="password" type="password" autocomplete="current-password" placeholder="Şifre" />
+              </label>
+            </div>
+
+            <div class="mode-fields" data-fields="m3u">
+              <label class="field wide">
+                <span>M3U / M3U8 URL</span>
+                <input name="m3uUrl" inputmode="url" autocomplete="url" placeholder="https://example.com/list.m3u" />
+              </label>
+            </div>
+
+            <div class="mode-fields" data-fields="file">
+              <label class="file-drop wide" for="m3uFile">
+                <input id="m3uFile" name="m3uFile" type="file" accept=".m3u,.m3u8,.txt,application/vnd.apple.mpegurl,text/plain" />
+                <span class="file-icon">+</span>
+                <strong id="fileTitle">M3U dosyası seç</strong>
+                <small id="fileMeta">Dosya sadece bu oturumda okunur.</small>
+              </label>
+            </div>
+          </div>
+
+          <div class="options-row">
+            <label class="toggle">
+              <input name="rememberOnStart" type="checkbox" checked />
+              <span>Başlangıçta bu liste</span>
+            </label>
+            <label class="toggle">
+              <input name="epgAutoSync" type="checkbox" checked />
+              <span>EPG otomatik</span>
+            </label>
+          </div>
+
+          <div class="submit-row">
+            <button class="primary-button" type="submit">TV’ye gönder</button>
+            <button class="secondary-button" id="copyPayload" type="button">Payload kopyala</button>
+          </div>
+        </form>
+
+        <aside class="result-card" id="resultCard" aria-live="polite">
+          <div>
+            <p class="eyebrow">Durum</p>
+            <h3 id="resultTitle">Hazır</h3>
+          </div>
+          <p id="resultText">TV kodu ve kaynak bilgileri girildiğinde kurulum paketi hazırlanır.</p>
+        </aside>
+      </section>
+    </main>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

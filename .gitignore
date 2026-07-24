@@ -1,0 +1,33 @@
+# IdealPlayer
+*.iml
+.gradle
+.kotlin/
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+build/
+app/build/
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+*.hprof
+*.log
+keystores/
+*.jks
+*.keystore
+# AI agent / local workflow files
+agents.md
+AGENTS.md
+.codex/
+.antigravity/
+supabase/.temp/
+adb_logcat_full.txt
+
+# Local Netlify folder
+.netlify
