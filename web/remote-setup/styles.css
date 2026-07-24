@@ -375,6 +375,10 @@ h2 {
   margin: -14px auto 0;
   padding: 0 0 28px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
 }
 
 .site-footer a {

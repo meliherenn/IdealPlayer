@@ -221,11 +221,20 @@ class M3uParser @Inject constructor() {
             .filter(String::isNotBlank)
 
     private fun detectContentType(url: String, group: String): ContentType {
-        val lowerUrl = parsePlaybackSource(url).url.lowercase()
+        val sourceUrl = parsePlaybackSource(url).url
+        val lowerUrl = sourceUrl.lowercase()
+        val pathExtension = sourceUrl.toHttpUrlOrNull()
+            ?.encodedPath
+            ?.substringAfterLast('.', missingDelimiterValue = "")
+            ?.lowercase()
+            .orEmpty()
         val lowerGroup = group.lowercase()
         return when {
-            lowerUrl.contains("/movie/") || lowerGroup.contains("movie") || lowerGroup.contains("film") -> ContentType.MOVIE
             lowerUrl.contains("/series/") || lowerGroup.contains("series") || lowerGroup.contains("dizi") -> ContentType.SERIES
+            lowerUrl.contains("/movie/") ||
+                lowerGroup.contains("movie") ||
+                lowerGroup.contains("film") ||
+                pathExtension in VOD_FILE_EXTENSIONS -> ContentType.MOVIE
             else -> ContentType.LIVE
         }
     }
@@ -321,6 +330,10 @@ class M3uParser @Inject constructor() {
             ?.getOrNull(1)
             ?.toIntOrNull()
             ?: 0
+    }
+
+    private companion object {
+        val VOD_FILE_EXTENSIONS = setOf("mp4", "m4v", "mov", "mkv", "webm", "ogv")
     }
 }
 

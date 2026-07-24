@@ -125,6 +125,21 @@ class M3uParserTest {
     }
 
     @Test
+    fun `progressive video URLs are VOD while preserving the playlist category`() {
+        val m3u = """
+            #EXTM3U
+            #EXTINF:-1 group-title="Legal Demo" tvg-name="Open Movie",Open Movie
+            https://media.example.test/open-movies/demo.mp4
+        """.trimIndent()
+
+        val result = parser.parseText(m3u, 1L)
+
+        assertThat(result.channels).isEmpty()
+        assertThat(result.movies).hasSize(1)
+        assertThat(result.movies.single().categoryName).isEqualTo("Legal Demo")
+    }
+
+    @Test
     fun `parse M3U with mixed content`() {
         val m3u = """
             #EXTM3U
