@@ -222,6 +222,7 @@
     
     <string name="settings_app_general">Uygulama / Genel</string>
     <string name="settings_playlist_account">Liste / Hesap</string>
+    <string name="privacy_policy">Gizlilik Politikası</string>
     <string name="disclaimer">Sorumluluk Reddi</string>
     <string name="disclaimer_text">IdealPlayer herhangi bir içerik barındırmaz veya sağlamaz. Kullanıcılar eriştikleri içeriklerden bizzat sorumludur.</string>
     <string name="action_refresh_playlist">Listeyi Yenile</string>

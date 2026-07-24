@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
@@ -60,6 +61,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
+private const val PRIVACY_POLICY_URL = "https://idealplayer.netlify.app/privacy"
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // ViewModel
@@ -211,6 +214,7 @@ private fun SettingsContent(
 ) {
     val dimens = LocalIdealPlayerDimens.current
     val context = LocalContext.current
+    val uriHandler = LocalUriHandler.current
     val scrollState = rememberScrollState()
     val activePlaylist by viewModel.activePlaylist.collectAsStateWithLifecycle()
     var showExitDialog by remember { mutableStateOf(false) }
@@ -595,6 +599,14 @@ private fun SettingsContent(
             )
             Spacer(modifier = Modifier.height(8.dp))
             SettingsInfoRow(stringResource(R.string.app_version), "IdealPlayer v${BuildConfig.VERSION_NAME}")
+
+            Spacer(modifier = Modifier.height(8.dp))
+            SettingsActionButton(
+                icon = Icons.Filled.PrivacyTip,
+                label = stringResource(R.string.privacy_policy),
+                isTv = isTv,
+                onClick = { uriHandler.openUri(PRIVACY_POLICY_URL) }
+            )
 
             Spacer(modifier = Modifier.height(8.dp))
             Text(stringResource(R.string.disclaimer), style = MaterialTheme.typography.labelSmall, color = IdealPlayerColors.TextTertiary)

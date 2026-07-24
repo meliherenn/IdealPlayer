@@ -222,6 +222,7 @@
     
     <string name="settings_app_general">App / General</string>
     <string name="settings_playlist_account">Playlist / Account</string>
+    <string name="privacy_policy">Privacy Policy</string>
     <string name="disclaimer">Disclaimer</string>
     <string name="disclaimer_text">IdealPlayer does not host or provide any content. Users are responsible for the content they access.</string>
     <string name="action_refresh_playlist">Refresh Playlist</string>

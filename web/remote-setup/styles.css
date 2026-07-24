@@ -29,6 +29,10 @@ body {
   color: var(--text);
 }
 
+a {
+  color: inherit;
+}
+
 button,
 input {
   font: inherit;
@@ -364,6 +368,24 @@ h2 {
 .result-card p:last-child {
   margin-bottom: 0;
   color: var(--muted);
+}
+
+.site-footer {
+  width: min(1180px, calc(100% - 36px));
+  margin: -14px auto 0;
+  padding: 0 0 28px;
+  text-align: center;
+}
+
+.site-footer a {
+  color: var(--muted);
+  font-weight: 750;
+  text-underline-offset: 4px;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--text);
 }
 
 @media (max-width: 920px) {
