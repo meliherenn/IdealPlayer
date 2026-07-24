@@ -12,7 +12,7 @@ M3U/M3U8 and Xtream input, XMLTV EPG support, Media3 playback, and LibVLC fallba
 The repository does not bundle channels, playlists, provider directories, stream URLs, accounts, or
 copyrighted media. Users are responsible for supplying content they are authorized to access.
 
-Current app version: `1.2.3` (`versionCode` 37). Android configuration: min SDK 26, compile/target
+Current app version: `1.2.4` (`versionCode` 38). Android configuration: min SDK 26, compile/target
 SDK 35, Java 17.
 
 ## Features
