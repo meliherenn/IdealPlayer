@@ -96,8 +96,15 @@ class PlayerManager @Inject constructor(
     fun getActiveEngineType(): PlayerEngineType? = activeEngineTypeFor(currentEngine)
 
     suspend fun initializeWithSettings() {
+        // A player route owns a new playback session. Invalidate any release queued by the
+        // previous route before touching the shared singleton engine.
+        val sessionRequestId = playbackRequestSequence.incrementAndGet()
         val settings = refreshSettingsCache()
-        switchEngine(PlayerEngineType.fromStoredValue(settings.playerEngine))
+        switchEngineInternal(
+            targetType = PlayerEngineType.fromStoredValue(settings.playerEngine),
+            replayRequest = false,
+            expectedRequestId = sessionRequestId
+        )
     }
 
     suspend fun updatePreferredEngine(targetType: PlayerEngineType) {
@@ -204,8 +211,17 @@ class PlayerManager @Inject constructor(
     ) {
         switchMutex.withLock {
             if (expectedRequestId != null && expectedRequestId != playbackRequestSequence.get()) {
-                Timber.d("Skipping stale automatic engine fallback request=%d", expectedRequestId)
+                Timber.d("Skipping stale playback pipeline request=%d", expectedRequestId)
                 return@withLock
+            }
+            if (expectedRequestId != null && !replayRequest) {
+                // A new route must never replay the previous route's last stream while its own
+                // request is being prepared.
+                lastPlaybackRequest = null
+                currentPlaybackProfileKey = null
+                automaticFallbackAttempted = false
+                profilePersistedForRequest = false
+                hasConfirmedCurrentRequest = false
             }
             _switchState.value = EngineSwitchState.SWITCHING
             var engineBeingPrepared: PlayerEngine? = null
@@ -504,10 +520,17 @@ class PlayerManager @Inject constructor(
     }
 
     fun release() {
-        playbackRequestSequence.incrementAndGet()
+        val releaseRequestId = playbackRequestSequence.incrementAndGet()
         managerScope.launch(Dispatchers.Main.immediate) {
             try {
                 switchMutex.withLock {
+                    // Navigation may create a new player route while an old route's asynchronous
+                    // cleanup is waiting for this mutex. Never let stale cleanup tear down the
+                    // newly initialized engine.
+                    if (releaseRequestId != playbackRequestSequence.get()) {
+                        Timber.d("Skipping stale playback release request=%d", releaseRequestId)
+                        return@withLock
+                    }
                     stateCollectionJob?.cancel()
                     stateCollectionJob = null
                     lastPlaybackRequest = null

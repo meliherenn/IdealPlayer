@@ -996,10 +996,12 @@ fun TvPlayerScreen(
         val targetAction = resolvedOverlayAction(requestedOverlayAction)
         when {
             showPlaybackError -> Unit
+            // Each panel owns and restores its own initial focus. Giving the blocking spinner
+            // root focus first can steal the first D-pad event while a channel is still opening.
+            activePanel != TvPlayerPanel.NONE -> Unit
             showBlockingPlaybackOverlay -> {
                 rootFocusRequester.requestFocusWhenReady("player blocking surface")
             }
-            activePanel != TvPlayerPanel.NONE -> Unit
             overlayVisible -> {
                 Timber.tag(TV_PLAYER_LOG_TAG).d(
                     "requestOverlayFocus action=%s panel=%s",
@@ -1350,14 +1352,14 @@ fun TvPlayerScreen(
                         Key.Enter
                     ) -> false
 
-                    // While the player surface is not ready there are no visible controls to
-                    // navigate. Consume D-pad/confirm input rather than dispatching it to an
-                    // obscured overlay action.
-                    showBlockingPlaybackOverlay && event.key in listOf(
+                    // A live channel list or EPG may be opened while the current stream is still
+                    // buffering. Only actions that have no visible target remain blocked here;
+                    // left/right continue below and open their respective panels immediately.
+                    showBlockingPlaybackOverlay &&
+                        activePanel == TvPlayerPanel.NONE &&
+                        event.key in listOf(
                         Key.DirectionUp,
                         Key.DirectionDown,
-                        Key.DirectionLeft,
-                        Key.DirectionRight,
                         Key.DirectionCenter,
                         Key.Enter
                     ) -> true
@@ -1443,7 +1445,10 @@ fun TvPlayerScreen(
                             // is being replaced by the channel LazyColumn.
                             openLiveCategoryPanel()
                             true
-                        } else if (!overlayVisible && activePanel == TvPlayerPanel.NONE) {
+                        } else if (
+                            (!overlayVisible || showBlockingPlaybackOverlay) &&
+                            activePanel == TvPlayerPanel.NONE
+                        ) {
                             when (
                                 tvPlayerHiddenDirectionalAction(
                                     isLivePlayback = isLivePlayback,
@@ -1479,7 +1484,10 @@ fun TvPlayerScreen(
                             // reported right-D-pad escape/crash path.
                             openLiveChannelPanel(channelPanelGroup)
                             true
-                        } else if (!overlayVisible && activePanel == TvPlayerPanel.NONE) {
+                        } else if (
+                            (!overlayVisible || showBlockingPlaybackOverlay) &&
+                            activePanel == TvPlayerPanel.NONE
+                        ) {
                             when (
                                 tvPlayerHiddenDirectionalAction(
                                     isLivePlayback = isLivePlayback,
@@ -1704,7 +1712,6 @@ fun TvPlayerScreen(
 
         if (
             !showPlaybackError &&
-            !showBlockingPlaybackOverlay &&
             activePanel != TvPlayerPanel.NONE
         ) {
             TvPlayerPanelHost(

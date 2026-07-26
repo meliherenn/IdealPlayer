@@ -145,14 +145,18 @@ class PlayerViewModel @Inject constructor(
     private var liveNavigationChannels: List<Channel> = emptyList()
     private var liveEpgAutoDiscoveryPlaylistId: Long? = null
     private var autoPlayNextTriggeredContentId: Long? = null
+    private var playerReleaseRequested = false
 
     private var httpRetryCount = 0
     private val maxHttpRetries = 3
 
     private companion object {
-        private const val LIVE_WARMUP_EXTENSION_MS = 4_000L
+        private const val LIVE_WARMUP_EXTENSION_MS = 2_500L
         private const val LIVE_WARMUP_MIN_PROGRESS_MS = 2_000L
         private const val LIVE_WARMUP_MIN_BUFFER_AHEAD_MS = 500L
+        private const val LIVE_PRIMARY_CANDIDATE_TIMEOUT_MS = 6_000L
+        private const val LIVE_FALLBACK_CANDIDATE_TIMEOUT_MS = 5_000L
+        private const val LIVE_CONFIRMATION_WINDOW_MS = 300L
         private const val AUTO_PLAY_NEXT_MIN_DURATION_MS = 30_000L
         private const val AUTO_PLAY_NEXT_END_TOLERANCE_MS = 2_500L
     }
@@ -720,8 +724,8 @@ class PlayerViewModel @Inject constructor(
         contentPlaybackJob?.cancel()
         httpRetryJob?.cancel()
         retryManager.cancel()
+        releasePlayerOnce()
         onBack()
-        playerManager.release()
     }
 
     override fun onCleared() {
@@ -731,6 +735,12 @@ class PlayerViewModel @Inject constructor(
         httpRetryJob?.cancel()
         saveProgress()
         retryManager.cancel()
+        releasePlayerOnce()
+    }
+
+    private fun releasePlayerOnce() {
+        if (playerReleaseRequested) return
+        playerReleaseRequested = true
         playerManager.release()
     }
 
@@ -1001,53 +1011,45 @@ class PlayerViewModel @Inject constructor(
             .distinct()
 
         uniqueCandidates.forEachIndexed { candidateIndex, candidate ->
-            val attempts = if (candidateIndex == 0) 2 else 1
+            Timber.d(
+                "LivePlayback: trying candidate[%d] url=%s",
+                candidateIndex,
+                SensitiveLog.redactUrl(candidate)
+            )
+            resetPlaybackAttempt()
+            playerManager.play(
+                url = candidate,
+                startPosition = startPosition,
+                profile = PlaybackProfile.LIVE
+            )
 
-            for (attempt in 0 until attempts) {
-                Timber.d(
-                    "LivePlayback: trying candidate[%d] attempt[%d] url=%s",
-                    candidateIndex,
-                    attempt,
+            val playbackConfirmed = awaitConfirmedPlaybackReady(
+                timeoutMs = if (candidateIndex == 0) {
+                    LIVE_PRIMARY_CANDIDATE_TIMEOUT_MS
+                } else {
+                    LIVE_FALLBACK_CANDIDATE_TIMEOUT_MS
+                },
+                confirmationWindowMs = LIVE_CONFIRMATION_WINDOW_MS
+            )
+
+            if (playbackConfirmed) {
+                currentUrl = candidate
+                clearLiveChannelSwitchError()
+                return true
+            }
+
+            Timber.w("LivePlayback candidate failed: %s", SensitiveLog.redactUrl(candidate))
+            if (isUnavailableHttpStatus(state.value.errorMessage)) {
+                Timber.w("LivePlayback HTTP unavailable, moving to the next candidate")
+            } else if (!shouldRetryCurrentLiveCandidate(candidate, state.value)) {
+                Timber.w(
+                    "LivePlayback non-rendering candidate rejected: %s",
                     SensitiveLog.redactUrl(candidate)
                 )
-                resetPlaybackAttempt()
-                delay(if (attempt == 0) 140L else 220L)
-                playerManager.play(
-                    url = candidate,
-                    startPosition = startPosition,
-                    profile = PlaybackProfile.LIVE
-                )
-
-                val playbackConfirmed = awaitConfirmedPlaybackReady(
-                    timeoutMs = if (attempt == 0) 7_500L else 8_500L
-                )
-
-                if (playbackConfirmed) {
-                    currentUrl = candidate
-                    clearLiveChannelSwitchError()
-                    return true
-                } else {
-                    Timber.w("LivePlayback candidate failed: %s", SensitiveLog.redactUrl(candidate))
-
-                    if (isUnavailableHttpStatus(state.value.errorMessage)) {
-                        Timber.w("LivePlayback HTTP unavailable, skipping candidate")
-                        resetPlaybackAttempt()
-                        break
-                    }
-
-                    if (!shouldRetryCurrentLiveCandidate(candidate, state.value)) {
-                        Timber.w(
-                            "LivePlayback skipping repeated attempt for non-rendering candidate: %s",
-                            SensitiveLog.redactUrl(candidate)
-                        )
-                        resetPlaybackAttempt()
-                        break
-                    }
-                    resetPlaybackAttempt()
-                }
             }
         }
 
+        resetPlaybackAttempt()
         return false
     }
 
@@ -1212,26 +1214,15 @@ class PlayerViewModel @Inject constructor(
         }
     }
 
-    private fun resolvePlaybackUrl(url: String, contentType: String): String {
+    private fun resolvePlaybackUrl(url: String): String {
         val source = parsePlaybackSource(url)
-        val trimmedUrl = source.url
-
-        val resolvedUrl = when {
-            contentType.equals(ContentType.LIVE.name, ignoreCase = true) &&
-                trimmedUrl.contains("/live/") &&
-                trimmedUrl.endsWith(".m3u8", ignoreCase = true) -> {
-                trimmedUrl.removeSuffix(".m3u8") + ".ts"
-            }
-
-            else -> trimmedUrl
-        }
-        return withPlaybackHeaders(resolvedUrl, source.headers)
+        return withPlaybackHeaders(source.url, source.headers)
     }
 
     private fun resolvePlaybackCandidates(url: String, contentType: String): List<String> {
         val source = parsePlaybackSource(url)
         val trimmedUrl = source.url
-        val defaultResolvedUrl = parsePlaybackSource(resolvePlaybackUrl(url, contentType)).url
+        val defaultResolvedUrl = parsePlaybackSource(resolvePlaybackUrl(url)).url
 
         if (contentType.equals(ContentType.SERIES.name, ignoreCase = true)) {
             return seriesPlaybackCandidates(withPlaybackHeaders(defaultResolvedUrl, source.headers))
@@ -1243,9 +1234,9 @@ class PlayerViewModel @Inject constructor(
 
         return buildList {
             add(defaultResolvedUrl)
-            if (trimmedUrl != defaultResolvedUrl) {
-                add(trimmedUrl)
-            }
+            // Respect the provider's advertised/original format first. Converting every Xtream
+            // HLS URL to transport stream up front delayed otherwise healthy Media3 playback.
+            if (trimmedUrl != defaultResolvedUrl) add(trimmedUrl)
             if (trimmedUrl.contains("/live/") && trimmedUrl.endsWith(".m3u8", ignoreCase = true)) {
                 add(trimmedUrl.removeSuffix(".m3u8") + ".ts")
             }
@@ -1476,7 +1467,7 @@ class PlayerViewModel @Inject constructor(
 
     private suspend fun resetPlaybackAttempt() {
         playerManager.stop()
-        delay(80L)
+        delay(30L)
     }
 
     private fun playbackProfileFor(contentType: String): PlaybackProfile {

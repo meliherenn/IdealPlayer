@@ -2,10 +2,13 @@ package com.idealplayer.app.data.parser
 
 import com.google.common.truth.Truth.assertThat
 import com.idealplayer.app.core.network.XtreamApi
+import com.idealplayer.app.core.network.dto.XtreamAuthResponse
 import com.idealplayer.app.core.network.dto.XtreamCategory
 import com.idealplayer.app.core.network.dto.XtreamLiveStream
 import com.idealplayer.app.core.network.dto.XtreamSeriesInfo
+import com.idealplayer.app.core.network.dto.XtreamUserInfo
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
@@ -23,6 +26,7 @@ class XtreamClientTest {
 
     @Test
     fun `content refresh fails instead of returning a destructive partial snapshot`() = runTest {
+        mockActiveAuthentication()
         coEvery {
             api.getLiveCategories(any(), any(), any(), any())
         } returns listOf(XtreamCategory(categoryId = "1", categoryName = "News"))
@@ -47,6 +51,7 @@ class XtreamClientTest {
 
     @Test
     fun `live only provider keeps a successful live snapshot when optional catalogs are unsupported`() = runTest {
+        mockActiveAuthentication()
         coEvery {
             api.getLiveCategories(any(), any(), any(), any())
         } returns listOf(XtreamCategory(categoryId = "1", categoryName = "News"))
@@ -69,6 +74,56 @@ class XtreamClientTest {
 
         assertThat(result.channels).hasSize(1)
         assertThat(result.loadedSections).containsExactly(XtreamContentSection.LIVE)
+    }
+
+    @Test
+    fun `first content refresh authenticates the entered password before loading catalogs`() = runTest {
+        coEvery {
+            api.authenticate(any(), "user", "wrong-pass")
+        } returns XtreamAuthResponse(
+            userInfo = XtreamUserInfo(status = "Banned")
+        )
+
+        val error = runCatching {
+            client.loadContent(
+                serverUrl = "https://provider.example",
+                username = "user",
+                password = "wrong-pass",
+                playlistId = 1L
+            )
+        }.exceptionOrNull()
+
+        assertThat(error).hasMessageThat().contains("Account not active")
+        coVerify(exactly = 0) {
+            api.getLiveStreams(any(), any(), any(), any(), any())
+        }
+    }
+
+    @Test
+    fun `live stream uses a provider supported output format`() = runTest {
+        mockActiveAuthentication(allowedOutputFormats = listOf("ts"))
+        coEvery {
+            api.getLiveCategories(any(), any(), any(), any())
+        } returns listOf(XtreamCategory(categoryId = "1", categoryName = "News"))
+        coEvery {
+            api.getLiveStreams(any(), any(), any(), any(), any())
+        } returns listOf(XtreamLiveStream(streamId = 1, name = "Synthetic live", categoryId = "1"))
+        coEvery {
+            api.getVodCategories(any(), any(), any(), any())
+        } throws unsupportedCatalogHttpException()
+        coEvery {
+            api.getSeriesCategories(any(), any(), any(), any())
+        } throws unsupportedCatalogHttpException()
+
+        val result = client.loadContent(
+            serverUrl = "https://provider.example",
+            username = "user",
+            password = "pass",
+            playlistId = 1L
+        )
+
+        assertThat(result.channels.single().streamUrl)
+            .isEqualTo("https://provider.example/live/user/pass/1.ts")
     }
 
     @Test
@@ -222,6 +277,19 @@ class XtreamClientTest {
         assertThat(episodes).hasSize(1)
         assertThat(episodes.single().streamUrl)
             .isEqualTo("https://provider.example/series/user/pass/24680.ts")
+    }
+
+    private fun mockActiveAuthentication(allowedOutputFormats: List<String> = listOf("m3u8", "ts")) {
+        coEvery {
+            api.authenticate(any(), "user", "pass")
+        } returns XtreamAuthResponse(
+            userInfo = XtreamUserInfo(
+                username = "user",
+                password = "pass",
+                status = "Active",
+                allowedOutputFormats = allowedOutputFormats
+            )
+        )
     }
 
     private fun unsupportedCatalogHttpException(): HttpException = HttpException(

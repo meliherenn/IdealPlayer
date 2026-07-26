@@ -8,6 +8,8 @@ import com.idealplayer.app.core.model.Channel
 import com.idealplayer.app.core.model.ContentType
 import com.idealplayer.app.core.network.XtreamApi
 import com.idealplayer.app.core.network.dto.*
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
@@ -67,7 +69,7 @@ class XtreamClient @Inject constructor(
         return try {
             val url = buildApiUrl(serverUrl)
             val response = api.authenticate(url, username, password)
-            if (response.userInfo?.status == "Active") {
+            if (response.userInfo?.status?.trim().equals("Active", ignoreCase = true)) {
                 Result.success(response)
             } else {
                 Result.failure(Exception("Account not active: ${response.userInfo?.status}"))
@@ -85,18 +87,37 @@ class XtreamClient @Inject constructor(
         password: String,
         playlistId: Long
     ): XtreamContentResult {
+        require(serverUrl.isNotBlank()) { "Xtream server URL is required" }
+        require(username.isNotBlank()) { "Xtream username is required" }
+        require(password.isNotBlank()) { "Xtream password is required" }
+
+        // Some Xtream panels do not reliably accept catalog actions until player_api.php has
+        // authenticated the credentials once. Always validate the exact values entered on the
+        // first save instead of letting an unauthenticated empty catalog look like success.
+        val authentication = authenticate(serverUrl, username, password).getOrThrow()
         val url = buildApiUrl(serverUrl)
         val channels = mutableListOf<ChannelEntity>()
         val movies = mutableListOf<MovieEntity>()
         val series = mutableListOf<SeriesEntity>()
         val categories = mutableListOf<CategoryEntity>()
         val loadedSections = mutableSetOf(XtreamContentSection.LIVE)
+        val liveExtension = preferredLiveExtension(
+            authentication.userInfo?.allowedOutputFormats.orEmpty()
+        )
 
         // Live TV is the required Xtream surface. VOD and series are optional: a number of
         // live-only panels explicitly reject those actions. Only known "unsupported action"
         // HTTP responses are treated as absent; transport and server failures still abort the
         // refresh so a transient error cannot replace a persisted catalog with a partial one.
-        val liveCategories = api.getLiveCategories(url, username, password)
+        val (liveCategories, liveStreams) = coroutineScope {
+            val categoriesRequest = async {
+                api.getLiveCategories(url, username, password)
+            }
+            val streamsRequest = async {
+                api.getLiveStreams(url, username, password)
+            }
+            categoriesRequest.await() to streamsRequest.await()
+        }
         categories.addAll(liveCategories.map {
             CategoryEntity(
                 playlistId = playlistId,
@@ -106,17 +127,24 @@ class XtreamClient @Inject constructor(
                 parentId = it.parentId
             )
         })
+        val liveCategoryNames = liveCategories.associate { it.categoryId to it.categoryName }
 
-        val liveStreams = api.getLiveStreams(url, username, password)
         channels.addAll(liveStreams.mapIndexed { index, stream ->
-            val categoryName = liveCategories.find { it.categoryId == stream.categoryId }?.categoryName ?: ""
+            val categoryName = liveCategoryNames[stream.categoryId].orEmpty()
             ChannelEntity(
                 playlistId = playlistId,
                 streamId = stream.streamId,
                 name = stream.name,
                 logoUrl = normalizeRemoteArtworkUrl(serverUrl, stream.streamIcon),
                 groupTitle = categoryName,
-                streamUrl = buildStreamUrl(serverUrl, "live", username, password, stream.streamId.toString(), "m3u8"),
+                streamUrl = buildStreamUrl(
+                    serverUrl,
+                    "live",
+                    username,
+                    password,
+                    stream.streamId.toString(),
+                    liveExtension
+                ),
                 epgChannelId = stream.epgChannelId ?: "",
                 catchupSource = if (stream.tvArchive > 0) "xtream" else "",
                 sortOrder = index
@@ -132,6 +160,7 @@ class XtreamClient @Inject constructor(
             }
         }
         if (vodCategories != null && vodStreams != null) {
+            val vodCategoryNames = vodCategories.associate { it.categoryId to it.categoryName }
             categories.addAll(vodCategories.map {
                 CategoryEntity(
                     playlistId = playlistId,
@@ -142,7 +171,7 @@ class XtreamClient @Inject constructor(
                 )
             })
             movies.addAll(vodStreams.mapIndexed { index, stream ->
-                val categoryName = vodCategories.find { it.categoryId == stream.categoryId }?.categoryName ?: ""
+                val categoryName = vodCategoryNames[stream.categoryId].orEmpty()
                 MovieEntity(
                     playlistId = playlistId,
                     streamId = stream.streamId,
@@ -183,6 +212,7 @@ class XtreamClient @Inject constructor(
             }
         }
         if (seriesCategories != null && seriesStreams != null) {
+            val seriesCategoryNames = seriesCategories.associate { it.categoryId to it.categoryName }
             categories.addAll(seriesCategories.map {
                 CategoryEntity(
                     playlistId = playlistId,
@@ -193,7 +223,7 @@ class XtreamClient @Inject constructor(
                 )
             })
             series.addAll(seriesStreams.mapIndexed { index, stream ->
-                val categoryName = seriesCategories.find { it.categoryId == stream.categoryId }?.categoryName ?: ""
+                val categoryName = seriesCategoryNames[stream.categoryId].orEmpty()
                 SeriesEntity(
                     playlistId = playlistId,
                     seriesId = stream.seriesId,
@@ -223,6 +253,18 @@ class XtreamClient @Inject constructor(
             categories = categories,
             loadedSections = loadedSections
         )
+    }
+
+    private fun preferredLiveExtension(allowedOutputFormats: List<String>): String {
+        val normalized = allowedOutputFormats
+            .map { it.trim().trimStart('.').lowercase() }
+            .filter(String::isNotBlank)
+
+        return when {
+            "m3u8" in normalized -> "m3u8"
+            "ts" in normalized -> "ts"
+            else -> "m3u8"
+        }
     }
 
     private suspend fun <T> loadOptionalCatalogSection(

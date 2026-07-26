@@ -708,7 +708,13 @@ class ExoPlayerEngine @Inject constructor(
             PlaybackProfile.LIVE -> {
                 val liveMin = (requestedBufferMs / 2).coerceIn(7_500, 18_000)
                 val liveMax = requestedBufferMs.coerceIn(liveMin + 4_000, 28_000)
-                listOf(liveMin, liveMax, 1_000, 2_000)
+                val (startupBufferMs, rebufferMs) =
+                    when (configuredLatencyMode.uppercase(Locale.getDefault())) {
+                        LiveLatencyMode.LOW_LATENCY.name -> 400 to 1_200
+                        LiveLatencyMode.STABLE.name -> 1_000 to 2_500
+                        else -> 700 to 1_800
+                    }
+                listOf(liveMin, liveMax, startupBufferMs, rebufferMs)
             }
 
             PlaybackProfile.VOD -> {
