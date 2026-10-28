@@ -1,0 +1,17 @@
+--- a/contrib/src/gpg-error/rules.mak
++++ b/contrib/src/gpg-error/rules.mak
+@@ -57,10 +57,13 @@
+ 	--disable-tests \
+ 	--disable-doc
+ 
+-.gpg-error: libgpg-error
++.gpg-error: libgpg-error $(SRC)/gpg-error/rules.mak
+ 	$(RECONF)
+ 	cd $< && $(HOSTVARS) ./configure $(HOSTCONF) $(GPGERROR_CONF)
+ 	# pre_mkheader_cmds would delete our lock-obj-pub-native.h
+ 	$(MAKE) -C $< pre_mkheader_cmds=true
+ 	$(MAKE) -C $< pre_mkheader_cmds=true install
++	# libgpg-error 1.27 predates its .pc file, required by libgcrypt 1.10.
++	mkdir -p "$(PREFIX)/lib/pkgconfig"
++	printf '%s\n' 'prefix=$(PREFIX)' 'libdir=$${prefix}/lib' 'includedir=$${prefix}/include' 'Name: gpg-error' 'Description: GnuPG common error codes' 'Version: $(GPGERROR_VERSION)' 'Libs: -L$${libdir} -lgpg-error' 'Cflags: -I$${includedir}' > "$(PREFIX)/lib/pkgconfig/gpg-error.pc"
+ 	touch $@

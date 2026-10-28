@@ -1,0 +1,18 @@
+[
+  {
+    "component": "png",
+    "version": "1.6.59",
+    "file": "libpng-1.6.59.tar.xz",
+    "url": "https://download.sourceforge.net/libpng/libpng-1.6.59.tar.xz",
+    "sha256": "d80dd2a38a37f803cb9b6ac7b14bd6e74ddc3b654780a8380bdf93523fdb4389",
+    "sha512": "e7d9d1b5f7648213ff5daf20789eda9400da7a23af9c9b0a6668e72dae69bd8944fc71c76a5ff2ed70dcb2cb74bb680020763a0a5914120ee5a3910df575fbf6"
+  },
+  {
+    "component": "libxml2",
+    "version": "2.15.4",
+    "file": "libxml2-2.15.4.tar.xz",
+    "url": "https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.4.tar.xz",
+    "sha256": "98087fd181d9070724f3fbc65c7377db03038eb92bd882374daff44940138821",
+    "sha512": "e162ed16ad6fb6c6ef1c40c6bed66a5f76db177fc24410cc261c9ddc6b19e9b003315db67f67cbcadaf08e546f0672de87bf6f297014af50fe544a781647f584"
+  }
+]

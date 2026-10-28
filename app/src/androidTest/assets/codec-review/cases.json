@@ -1,0 +1,58 @@
+[
+  {
+    "name": "aac",
+    "file": "aac.mkv"
+  },
+  {
+    "name": "ac3",
+    "file": "ac3.mkv"
+  },
+  {
+    "name": "eac3",
+    "file": "eac3.mkv"
+  },
+  {
+    "name": "dts",
+    "file": "dts.mkv"
+  },
+  {
+    "name": "truehd",
+    "file": "truehd.mkv"
+  },
+  {
+    "name": "flac",
+    "file": "flac.mkv"
+  },
+  {
+    "name": "alac",
+    "file": "alac.m4a"
+  },
+  {
+    "name": "m4a_aac",
+    "file": "m4a_aac.m4a"
+  },
+  {
+    "name": "mp3",
+    "file": "mp3.mkv"
+  },
+  {
+    "name": "opus",
+    "file": "opus.mkv"
+  },
+  {
+    "name": "pcm_mulaw",
+    "file": "pcm_mulaw.mkv"
+  },
+  {
+    "name": "pcm_alaw",
+    "file": "pcm_alaw.mkv"
+  },
+  {
+    "name": "hls_aac",
+    "file": "hls_aac/index.m3u8"
+  },
+  {
+    "name": "hls_ac3",
+    "file": "hls_ac3/index.m3u8"
+  }
+]

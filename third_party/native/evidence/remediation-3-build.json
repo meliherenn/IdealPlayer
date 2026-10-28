@@ -1,0 +1,485 @@
+{
+  "status": "BUILT_API_VERIFIED_RUNTIME_PENDING",
+  "coordinate": "org.videolan.android:libvlc-all:3.7.2-idealplayer-remediation.3",
+  "aar_sha256": "6c23a6bb5171d2d1768ee4a138997c73900cb36adfd36f5a92b466edbd33f32a",
+  "pom_sha256": "26304dca189319330577186db0850220b918a58b749b6985a32a23d4aaea80b1",
+  "source_lock_sha256": "7109343b915688fd3bf08660fa9932370a32c27dde762c87ac0060907348bf78",
+  "native_libraries": [
+    {
+      "entry": "jni/arm64-v8a/libc++_shared.so",
+      "sha256": "ab4e6c71b96b851de45a8a9bd86369e7dbc2130a44b3b4520564be94847910f2",
+      "bytes": 9236352,
+      "load_alignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "entry": "jni/arm64-v8a/libvlc.so",
+      "sha256": "36d9b64c529fbc94adb47cdfb848d89bc95425b3f10a55db2e987913bba1f57e",
+      "bytes": 44924256,
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 340
+    },
+    {
+      "entry": "jni/arm64-v8a/libvlcjni.so",
+      "sha256": "b0ebde2b65bcc3011f52fae299f7cc716c58d486c949b8e37648c70af9f09024",
+      "bytes": 94296,
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 122
+    },
+    {
+      "entry": "jni/armeabi-v7a/libc++_shared.so",
+      "sha256": "092a44574c247982e265743acb1227e11a2f079a765814fef1b627dbfb2b79d5",
+      "bytes": 554808,
+      "load_alignments": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "entry": "jni/armeabi-v7a/libvlc.so",
+      "sha256": "44b606fb99391af1db84c19ed470d669f46f36b49f6856881d7a97721f9ab533",
+      "bytes": 39631064,
+      "load_alignments": [
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 340
+    },
+    {
+      "entry": "jni/armeabi-v7a/libvlcjni.so",
+      "sha256": "7d00d5dacf6253d119a78f7738ea9afc37e80f7b4b2f1969dd646e14fb369754",
+      "bytes": 83544,
+      "load_alignments": [
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 122
+    },
+    {
+      "entry": "jni/x86_64/libc++_shared.so",
+      "sha256": "e4cd73c8a3607269f3be58d15c21f78bff112e27f9398d6261e5f965668f8746",
+      "bytes": 8808664,
+      "load_alignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "entry": "jni/x86_64/libvlc.so",
+      "sha256": "8e983911cb2e36302da777cb53250aff12009d0196f81013ef479c95629493e4",
+      "bytes": 53303856,
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 340
+    },
+    {
+      "entry": "jni/x86_64/libvlcjni.so",
+      "sha256": "ed25ad4feba5a5c5892bb1736df21070cbbb6c9787612e41b46c63b510ca4f08",
+      "bytes": 94008,
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 122
+    },
+    {
+      "entry": "jni/x86/libc++_shared.so",
+      "sha256": "3051dd001301b81024779099e11f657f10e983d02aa1b16f18e711ec33685314",
+      "bytes": 931652,
+      "load_alignments": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "entry": "jni/x86/libvlc.so",
+      "sha256": "d9917f3fd93c8d35830f9ce5d28f426f270727e9989007bc22f40a59d0f928b9",
+      "bytes": 49100660,
+      "load_alignments": [
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 340
+    },
+    {
+      "entry": "jni/x86/libvlcjni.so",
+      "sha256": "f19e8e87b6cd8a0cc5bef96f4879ce6784e3806394c23852868a0b6ac2fb00c9",
+      "bytes": 116200,
+      "load_alignments": [
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 122
+    }
+  ],
+  "compiled_security_patches": [
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-64830",
+      "patch_sha256": "9b8696e8543c2e5b7dd8be3ea75ef034537cfaf22e69b972f3bc4536af2b6869",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-64832",
+      "patch_sha256": "87d29f7136cd861884a935278ca379fa381cd7d1c7d6295de102c1a3f6af526f",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-64835",
+      "patch_sha256": "2a8944b7f3c2e09ae7af31d88c4b6aca270c856ce8456db865ddc7d12c901459",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-65703",
+      "patch_sha256": "f439aa86e1bd660fa76dd805d9d4236d1e149065324e14cbd575ec3d9ab26ec3",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-65704",
+      "patch_sha256": "799bf1362892a4ff9f3738dcd9d8985bb4e94c50e87ff558926c5649a19a34b0",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-66037",
+      "patch_sha256": "b800c259300e41ba3a35a626953ca7665648e7de9955e168d8477d7414e7e3f1",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-66038",
+      "patch_sha256": "32a747708b22873fc4751d599f375555f4e5012355bca17476e22f0f02f53ed5",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-66039",
+      "patch_sha256": "1c2a4c717b32b1d4bee2a746ef6e403da6ed1dbf89a8a7a4fddd8a17e4d0c06a",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-66040",
+      "patch_sha256": "614ef4066696c4f809999b60c540da3e661d628546dabebb6fb10f7d11112fb8",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-70629",
+      "patch_sha256": "415413b2ed4e09b229af8cc87427e00375a00361570457c21db10b1f3b92211b",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-70631",
+      "patch_sha256": "aa977ef77d38f1dafaba5f2d8dda823206580fcb4e18ed228f7368d8ada28656",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-107660",
+      "patch_sha256": "42c0b1fbfc63e4c0ed72eee1f35b2d72f1c88c210f19553c19f11fac66708dec",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-107695",
+      "patch_sha256": "d1b4ade56c227892267a6d9a1206c4cb129142ef4b7ec435e88c21ed625218c3",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-107697",
+      "patch_sha256": "500cd477cab13d0a99722183a289475fdf8b2863bc991233cf48f1c7f985f64b",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-64830",
+      "patch_sha256": "9b8696e8543c2e5b7dd8be3ea75ef034537cfaf22e69b972f3bc4536af2b6869",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-64832",
+      "patch_sha256": "87d29f7136cd861884a935278ca379fa381cd7d1c7d6295de102c1a3f6af526f",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-64835",
+      "patch_sha256": "2a8944b7f3c2e09ae7af31d88c4b6aca270c856ce8456db865ddc7d12c901459",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-65703",
+      "patch_sha256": "f439aa86e1bd660fa76dd805d9d4236d1e149065324e14cbd575ec3d9ab26ec3",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-65704",
+      "patch_sha256": "799bf1362892a4ff9f3738dcd9d8985bb4e94c50e87ff558926c5649a19a34b0",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-66037",
+      "patch_sha256": "b800c259300e41ba3a35a626953ca7665648e7de9955e168d8477d7414e7e3f1",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-66038",
+      "patch_sha256": "32a747708b22873fc4751d599f375555f4e5012355bca17476e22f0f02f53ed5",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-66039",
+      "patch_sha256": "1c2a4c717b32b1d4bee2a746ef6e403da6ed1dbf89a8a7a4fddd8a17e4d0c06a",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-66040",
+      "patch_sha256": "614ef4066696c4f809999b60c540da3e661d628546dabebb6fb10f7d11112fb8",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-70629",
+      "patch_sha256": "415413b2ed4e09b229af8cc87427e00375a00361570457c21db10b1f3b92211b",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-70631",
+      "patch_sha256": "aa977ef77d38f1dafaba5f2d8dda823206580fcb4e18ed228f7368d8ada28656",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-107660",
+      "patch_sha256": "42c0b1fbfc63e4c0ed72eee1f35b2d72f1c88c210f19553c19f11fac66708dec",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-107695",
+      "patch_sha256": "d1b4ade56c227892267a6d9a1206c4cb129142ef4b7ec435e88c21ed625218c3",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-107697",
+      "patch_sha256": "500cd477cab13d0a99722183a289475fdf8b2863bc991233cf48f1c7f985f64b",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-64830",
+      "patch_sha256": "9b8696e8543c2e5b7dd8be3ea75ef034537cfaf22e69b972f3bc4536af2b6869",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-64832",
+      "patch_sha256": "87d29f7136cd861884a935278ca379fa381cd7d1c7d6295de102c1a3f6af526f",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-64835",
+      "patch_sha256": "2a8944b7f3c2e09ae7af31d88c4b6aca270c856ce8456db865ddc7d12c901459",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-65703",
+      "patch_sha256": "f439aa86e1bd660fa76dd805d9d4236d1e149065324e14cbd575ec3d9ab26ec3",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-65704",
+      "patch_sha256": "799bf1362892a4ff9f3738dcd9d8985bb4e94c50e87ff558926c5649a19a34b0",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-66037",
+      "patch_sha256": "b800c259300e41ba3a35a626953ca7665648e7de9955e168d8477d7414e7e3f1",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-66038",
+      "patch_sha256": "32a747708b22873fc4751d599f375555f4e5012355bca17476e22f0f02f53ed5",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-66039",
+      "patch_sha256": "1c2a4c717b32b1d4bee2a746ef6e403da6ed1dbf89a8a7a4fddd8a17e4d0c06a",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-66040",
+      "patch_sha256": "614ef4066696c4f809999b60c540da3e661d628546dabebb6fb10f7d11112fb8",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-70629",
+      "patch_sha256": "415413b2ed4e09b229af8cc87427e00375a00361570457c21db10b1f3b92211b",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-70631",
+      "patch_sha256": "aa977ef77d38f1dafaba5f2d8dda823206580fcb4e18ed228f7368d8ada28656",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-107660",
+      "patch_sha256": "42c0b1fbfc63e4c0ed72eee1f35b2d72f1c88c210f19553c19f11fac66708dec",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-107695",
+      "patch_sha256": "d1b4ade56c227892267a6d9a1206c4cb129142ef4b7ec435e88c21ed625218c3",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-107697",
+      "patch_sha256": "500cd477cab13d0a99722183a289475fdf8b2863bc991233cf48f1c7f985f64b",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-64830",
+      "patch_sha256": "9b8696e8543c2e5b7dd8be3ea75ef034537cfaf22e69b972f3bc4536af2b6869",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-64832",
+      "patch_sha256": "87d29f7136cd861884a935278ca379fa381cd7d1c7d6295de102c1a3f6af526f",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-64835",
+      "patch_sha256": "2a8944b7f3c2e09ae7af31d88c4b6aca270c856ce8456db865ddc7d12c901459",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-65703",
+      "patch_sha256": "f439aa86e1bd660fa76dd805d9d4236d1e149065324e14cbd575ec3d9ab26ec3",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-65704",
+      "patch_sha256": "799bf1362892a4ff9f3738dcd9d8985bb4e94c50e87ff558926c5649a19a34b0",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-66037",
+      "patch_sha256": "b800c259300e41ba3a35a626953ca7665648e7de9955e168d8477d7414e7e3f1",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-66038",
+      "patch_sha256": "32a747708b22873fc4751d599f375555f4e5012355bca17476e22f0f02f53ed5",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-66039",
+      "patch_sha256": "1c2a4c717b32b1d4bee2a746ef6e403da6ed1dbf89a8a7a4fddd8a17e4d0c06a",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-66040",
+      "patch_sha256": "614ef4066696c4f809999b60c540da3e661d628546dabebb6fb10f7d11112fb8",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-70629",
+      "patch_sha256": "415413b2ed4e09b229af8cc87427e00375a00361570457c21db10b1f3b92211b",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-70631",
+      "patch_sha256": "aa977ef77d38f1dafaba5f2d8dda823206580fcb4e18ed228f7368d8ada28656",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-107660",
+      "patch_sha256": "42c0b1fbfc63e4c0ed72eee1f35b2d72f1c88c210f19553c19f11fac66708dec",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-107695",
+      "patch_sha256": "d1b4ade56c227892267a6d9a1206c4cb129142ef4b7ec435e88c21ed625218c3",
+      "reverse_dry_run_exit_code": 0
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-107697",
+      "patch_sha256": "500cd477cab13d0a99722183a289475fdf8b2863bc991233cf48f1c7f985f64b",
+      "reverse_dry_run_exit_code": 0
+    }
+  ],
+  "scope": "Exact built bytes, compiled source patches and public API; not comprehensive security/license clearance",
+  "unchanged_java_classes": 140,
+  "magicyuv": {
+    "id": "CVE-2026-8461",
+    "release": "8.1.2",
+    "source_sha256": "8e2a7df2e7bbbb3d08e243fe2e4b4bdf47e13af144925507ef51033fd46a3da2",
+    "matches_official_release_in_all_four_builds": true,
+    "upstream_reference": "https://ffmpeg.org/security.html",
+    "release_fix_commits": [
+      "a991b3e1102824730de6b0b2afd1c7e41fbdf03d",
+      "9516e6900a8294c5a9e0da8d4ad88956776d6666",
+      "e302bafe79e0153f4dc7faecec7203836dcd71a7"
+    ]
+  }
+}

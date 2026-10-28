@@ -1,0 +1,41 @@
+--- a/contrib/src/ffmpeg/rules.mak
++++ b/contrib/src/ffmpeg/rules.mak
+@@ -7,9 +7,9 @@
+ ifndef USE_LIBAV
+ FFMPEG_HASH=71fb6132637a2a430375c24afc381fff8b854fe7
+ FFMPEG_MAJVERSION := 8.1
+-FFMPEG_REVISION := 0
+-# FFMPEG_VERSION := $(FFMPEG_MAJVERSION).$(FFMPEG_REVISION)
+-FFMPEG_VERSION := $(FFMPEG_MAJVERSION)
++FFMPEG_REVISION := 2
++FFMPEG_VERSION := $(FFMPEG_MAJVERSION).$(FFMPEG_REVISION)
++# FFMPEG_VERSION := $(FFMPEG_MAJVERSION)
+ FFMPEG_BRANCH=release/$(FFMPEG_MAJVERSION)
+ FFMPEG_URL := https://ffmpeg.org/releases/ffmpeg-$(FFMPEG_VERSION).tar.xz
+ FFMPEG_GITURL := https://code.ffmpeg.org/FFmpeg/FFmpeg.git
+@@ -260,6 +260,20 @@
+ 	$(APPLY) $(SRC)/ffmpeg/0001-bring-back-XP-support.patch
+ 	$(APPLY) $(SRC)/ffmpeg/0011-avcodec-videotoolboxenc-disable-calls-on-unsupported.patch
+ 	$(APPLY) $(SRC)/ffmpeg/avcodec-fix-compilation-visionos.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-64830-dbd495f066a85ba96b17433f4306582aa37c3951.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-64832-4c6217477fc64305055b37d9d1d0d76d30e37f97.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-64835-1836ef96846937a6cc2443698a693104f5c0b21e.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-65703-fd3ee52fab34d98a95b787d0b5ff45685766200c.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-65704-de771bd52774a52d45b0e2c82e56995a1ef40df7.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-66037-86708357d126af84c16f80d9c57335d1e8c845c5.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-66038-e7cbfd1c507b57a806a5825b87d609963e862c8c.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-66039-aafb5c655edc76a753275c383ebb139feb032718.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-66040-b506fafec9a19fcbc2be5271875fd4a63d6615bc.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-70629-cd1f545cf27ba08f6f5b31b1e92665d7874d4fd7.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-70631-2f234ea34c81288e3840fca632dd16481d8de39f.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-107660-0cd2a70eacd510c2efed48b9fc177c7cb2bc549f.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-107695-a4ddaba8bb7811b1a3afaad59fe6555e720d4754.patch
++	$(APPLY) $(SRC)/ffmpeg/CVE-2026-107697-01044d04536eec6e2f5f48ef404cf45d15feb461.patch
+ endif
+ ifdef USE_LIBAV
+ 	$(APPLY) $(SRC)/ffmpeg/libav_gsm.patch
+--- a/contrib/src/ffmpeg/SHA512SUMS
++++ b/contrib/src/ffmpeg/SHA512SUMS
+@@ -1 +1 @@
+-9deb30b93c27873564ec094693e72ff552f63a09af3175f9118672b88299a4e9495502aa0fb2dfbcd45857ba255f24b829bdd3c3c17d0f1eee75423302a9af8c  ffmpeg-8.1.tar.xz
++b3adc16fe426217bb607da01c4137cee0a9788fc08e077874336db185d2b7287746a7dc94cf0181ea92cd8afcdb06094ee9456e2986112354f84538cb9a5ed0b  ffmpeg-8.1.2.tar.xz

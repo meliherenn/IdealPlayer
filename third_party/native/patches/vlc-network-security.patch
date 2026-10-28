@@ -1,0 +1,302 @@
+--- a/contrib/src/nfs/rules.mak
++++ b/contrib/src/nfs/rules.mak
+@@ -21,6 +21,7 @@
+ nfs: UNPACK_DIR=libnfs-libnfs-$(NFS_VERSION)
+ nfs: libnfs-$(NFS_VERSION).tar.gz .sum-nfs
+ 	$(UNPACK)
++	$(APPLY) $(SRC)/nfs/idealplayer-security.patch
+ 	$(APPLY) $(SRC)/nfs/0001-cant-have-win32.h-referenced-from-a-header-we-instal.patch
+ 	$(APPLY) $(SRC)/nfs/0002-pthread-and-win32-need-to-be-exclusive-in-multithrea.patch
+ 	$(APPLY) $(SRC)/nfs/0003-win32-define-struct-timezone-for-non-mingw-w32.patch
+--- /dev/null
++++ b/contrib/src/nfs/idealplayer-security.patch
+@@ -0,0 +1,88 @@
++--- a/lib/libnfs-zdr.c
+++++ b/lib/libnfs-zdr.c
++@@ -188,16 +188,28 @@
++ 	return libnfs_zdr_uint64_t(zdrs, (uint64_t *)i);
++ }
++ 
+++/* Upstream 7613236: zero/~0 denote unlimited protocol lengths. */
+++static bool_t libnfs_zdr_size_ok(uint32_t size, uint32_t maxsize)
+++{
+++        return maxsize == 0 || maxsize == ~(uint32_t)0 || size <= maxsize;
+++}
+++
++ bool_t libnfs_zdr_bytes(ZDR *zdrs, char **bufp, uint32_t *size, uint32_t maxsize)
++ {
++         uint32_t zero = 0;
++         int pad;
++ 
+++        if (zdrs->x_op == ZDR_ENCODE && !libnfs_zdr_size_ok(*size, maxsize)) return FALSE;
+++
++ 	if (!libnfs_zdr_u_int(zdrs, size)) {
++ 		return FALSE;
++ 	}
++-
++-	if (zdrs->pos + (int)*size > zdrs->size) {
+++        if (zdrs->x_op == ZDR_DECODE && !libnfs_zdr_size_ok(*size, maxsize)) return FALSE;
+++
+++        /* Bound size before signed arithmetic and reserve wire padding. */
+++        if (*size > 1024 * 1024 * 1024 || zdrs->pos > zdrs->size ||
+++            *size > (uint32_t)(zdrs->size - zdrs->pos) ||
+++            ((*size + 3u) & ~3u) > (uint32_t)(zdrs->size - zdrs->pos)) {
++ 		return FALSE;
++ 	}
++ 
++@@ -215,6 +227,7 @@
++ 		return TRUE;
++ 	case ZDR_DECODE:
++ 		if (*bufp != NULL) {
+++                        if (*size > maxsize) return FALSE;
++ 			memcpy(*bufp, &zdrs->buf[zdrs->pos], *size);
++ 		} else {
++ 			*bufp = &zdrs->buf[zdrs->pos];
++@@ -300,12 +313,16 @@
++ 
++ 	if (zdrs->x_op == ZDR_ENCODE) {
++ 		size = strlen(*strp);
+++                if (!libnfs_zdr_size_ok(size, maxsize)) return FALSE;
++ 	}
++ 
++ 	if (!libnfs_zdr_u_int(zdrs, &size)) {
++ 		return FALSE;
++ 	}
++-
+++        if (zdrs->x_op == ZDR_DECODE && !libnfs_zdr_size_ok(size, maxsize)) return FALSE;
+++	if (size > zdrs->size) {
+++		return FALSE;
+++	}
++ 	if (zdrs->pos + (int)size > zdrs->size) {
++ 		return FALSE;
++ 	}
++@@ -344,11 +361,14 @@
++ 	int  i;
++         uint32_t s;
++ 
+++        if (zdrs->x_op == ZDR_ENCODE && !libnfs_zdr_size_ok(*size, maxsize)) return FALSE;
+++
++ 	if (!libnfs_zdr_u_int(zdrs, size)) {
++ 		return FALSE;
++ 	}
++-
++-        if (*size > UINT32_MAX/elsize) {
+++        if (zdrs->x_op == ZDR_DECODE && !libnfs_zdr_size_ok(*size, maxsize)) return FALSE;
+++
+++        if (elsize == 0 || *size > UINT32_MAX/elsize) {
++                 return FALSE;
++         }
++         s = *size * elsize;
++--- a/lib/socket.c
+++++ b/lib/socket.c
++@@ -929,6 +929,9 @@
++                                 break;
++                         case READ_IOVEC:
++                                 rpc->pdu->read_count -= rpc->pdu_size;
+++                                if (rpc->rm_xid[0] < rpc->pdu_size) {
+++                                        return -1;
+++                                }
++                                 rpc->rm_xid[0] -= rpc->pdu_size;
++                                 if (!rpc->rm_xid[0]) {
++                                         rpc_finished_pdu(rpc);
+--- a/contrib/src/smb2/rules.mak
++++ b/contrib/src/smb2/rules.mak
+@@ -13,6 +13,7 @@
+ 
+ smb2: libsmb2-$(SMB2_VERSION).tar.gz .sum-smb2
+ 	$(UNPACK)
++	$(APPLY) $(SRC)/smb2/idealplayer-security.patch
+ 	$(MOVE)
+ 
+ SMB2_CONF := --disable-examples --disable-werror --without-libkrb5
+--- /dev/null
++++ b/contrib/src/smb2/idealplayer-security.patch
+@@ -0,0 +1,188 @@
++--- a/lib/init.c
+++++ b/lib/init.c
++@@ -385,7 +385,11 @@
++                                      void (*free)(void *))
++ {
++         struct smb2_iovec *iov = &v->iov[v->niov];
++-
+++        // Add bounds checking
+++        if (v->niov >= SMB2_MAX_VECTORS) {
+++            smb2_set_error(smb2, "Too many I/O vectors");
+++            return (struct smb2_iovec*) &v->iov[SMB2_MAX_VECTORS - 1]; // We dont return NULL to prevent null point deref.
+++        }                                                              // I chose the simplest solution here, it can be treated more elegantly.
++         v->iov[v->niov].buf = buf;
++         v->iov[v->niov].len = len;
++         v->iov[v->niov].free = free;
++--- a/lib/smb2-data-file-info.c
+++++ b/lib/smb2-data-file-info.c
++@@ -128,10 +128,10 @@
++                           struct smb2_iovec *vec)
++ {
++         struct smb2_iovec v;
++-        uint16_t name_len;
+++        uint32_t name_len;
++         const char *name;
++ 
++-        if (vec->len < 40) {
+++        if (vec->len < 100) {
++                 return -1;
++         }
++ 
++@@ -153,9 +153,13 @@
++         smb2_get_uint64(vec, 80, &fs->current_byte_offset);
++         smb2_get_uint32(vec, 88, &fs->mode);
++         smb2_get_uint32(vec, 92, &fs->alignment_requirement);
++-        smb2_get_uint16(vec, 96, &name_len);
+++        smb2_get_uint32(vec, 96, &name_len);
+++        if (name_len > vec->len - 100 || (name_len & 1)) {
+++                return -1;
+++        }
++ 
++         name = utf16_to_utf8((uint16_t *)&vec->buf[100], name_len / 2);
+++        if (!name) return -1;
++         fs->name = smb2_alloc_data(smb2, memctx, strlen(name) + 1);
++         if (fs->name == NULL) {
++                 free(discard_const(name));
++--- a/lib/smb2-data-filesystem-info.c
+++++ b/lib/smb2-data-filesystem-info.c
++@@ -54,14 +54,17 @@
++         uint64_t t;
++         const char *name;
++ 
+++        if (vec->len < 18) return -1;
++         smb2_get_uint64(vec,  0, &t);
++         win_to_timeval(t, &fs->creation_time);
++ 	smb2_get_uint32(vec,  8, &fs->volume_serial_number);
++ 	smb2_get_uint32(vec, 12, &fs->volume_label_length);
++ 	smb2_get_uint8(vec,  16, &fs->supports_objects);
++ 	smb2_get_uint8(vec,  17, &fs->reserved);
+++        if (fs->volume_label_length > vec->len - 18 || (fs->volume_label_length & 1)) return -1;
++         name = utf16_to_utf8((uint16_t *)&vec->buf[18],
++                             fs->volume_label_length / 2);
+++        if (!name) return -1;
++         fs->volume_label = smb2_alloc_data(smb2, memctx, strlen(name) + 1);
++         if (fs->volume_label == NULL) {
++                 free(discard_const(name));
++--- a/lib/smb2-data-security-descriptor.c
+++++ b/lib/smb2-data-security-descriptor.c
++@@ -47,6 +47,16 @@
++ #include "smb2.h"
++ #include "libsmb2.h"
++ #include "libsmb2-private.h"
+++
+++#define DEC_VLEN(l) \
+++    do {                                                    \
+++        if (v.len < (l)) {                                  \
+++                smb2_set_error(smb2, "corrupted pdu");      \
+++                return NULL;                                \
+++        } else {                                            \
+++                v.len -= (l);                               \
+++        }                                                   \
+++    } while(0);
++ 
++ static struct smb2_sid *
++ decode_sid(struct smb2_context *smb2, void *memctx, struct smb2_iovec *v)
++@@ -131,7 +141,7 @@
++                 smb2_set_error(smb2, "not enough data for ace data.");
++                 return NULL;
++         }
++-        v.len -= 4;
+++        DEC_VLEN(4);
++         v.buf = &v.buf[4];
++ 
++         /* decode the content of the ace */
++@@ -144,11 +154,7 @@
++         case SMB2_SYSTEM_SCOPED_POLICY_ID_ACE_TYPE:
++                 smb2_get_uint32(&v, 0, &ace->mask);
++                 
++-                if (v.len < 4) {
++-                        smb2_set_error(smb2, "not enough data for ace data.");
++-                        return NULL;
++-                }
++-                v.len -= 4;
+++                DEC_VLEN(4);
++                 v.buf = &v.buf[4];
++                 ace->sid = decode_sid(smb2, memctx, &v);
++                 break;
++@@ -161,20 +167,20 @@
++                 }
++                 smb2_get_uint32(&v, 0, &ace->mask);
++ 
++-                v.len -= 4;
+++                DEC_VLEN(4);
++                 v.buf = &v.buf[4];
++                 smb2_get_uint32(&v, 0, &ace->flags);
++ 
++-                v.len -= 4;
+++                DEC_VLEN(4);
++                 v.buf = &v.buf[4];
++                 memcpy(ace->object_type, v.buf, SMB2_OBJECT_TYPE_SIZE);
++ 
++-                v.len -= SMB2_OBJECT_TYPE_SIZE;
+++                DEC_VLEN(SMB2_OBJECT_TYPE_SIZE);
++                 v.buf = &v.buf[SMB2_OBJECT_TYPE_SIZE];
++                 memcpy(ace->inherited_object_type, v.buf,
++                        SMB2_OBJECT_TYPE_SIZE);
++ 
++-                v.len -= SMB2_OBJECT_TYPE_SIZE;
+++                DEC_VLEN(SMB2_OBJECT_TYPE_SIZE);
++                 v.buf = &v.buf[SMB2_OBJECT_TYPE_SIZE];
++                 ace->sid = decode_sid(smb2, memctx, &v);
++                 break;
++@@ -187,7 +193,7 @@
++                         smb2_set_error(smb2, "not enough data for ace data.");
++                         return NULL;
++                 }
++-                v.len -= 4;
+++                DEC_VLEN(4);
++                 v.buf = &v.buf[4];
++                 ace->sid = decode_sid(smb2, memctx, &v);
++ 
++@@ -255,7 +261,7 @@
++         acl->ace_count = ace_count;
++ 
++         /* Skip past the ACL header to the first ace. */
++-        v.len -= 8;
+++        DEC_VLEN(8);
++         v.buf = &v.buf[8];
++ 
++         for (i = 0; i < ace_count; i++) {
++@@ -272,7 +278,7 @@
++                                        smb2_get_error(smb2));
++                         return NULL;
++                 }
++-                v.len -= ace->ace_size;
+++                DEC_VLEN(ace->ace_size);
++                 v.buf = &v.buf[ace->ace_size];
++ 
++                 SMB2_LIST_ADD_END(&acl->aces, ace);
++@@ -311,7 +317,8 @@
++         smb2_get_uint32(&v, 16, &offset_dacl);
++ 
++         /* Owner */
++-        if (offset_owner > 0 && offset_owner + 2 + SID_ID_AUTH_LEN < vec->len) {
+++        if (offset_owner > 0 && offset_owner < vec->len &&
+++            vec->len - offset_owner >= 2 + SID_ID_AUTH_LEN) {
++                 v.buf = &vec->buf[offset_owner];
++                 v.len = vec->len - offset_owner;
++ 
++@@ -324,7 +331,8 @@
++         }
++ 
++         /* Group */
++-        if (offset_group > 0 && offset_group + 2 + SID_ID_AUTH_LEN < vec->len) {
+++        if (offset_group > 0 && offset_group < vec->len &&
+++            vec->len - offset_group >= 2 + SID_ID_AUTH_LEN) {
++                 v.buf = &vec->buf[offset_group];
++                 v.len = vec->len - offset_group;
++ 
++@@ -337,7 +345,8 @@
++         }
++ 
++         /* DACL */
++-        if (offset_dacl > 0 && offset_dacl + 8 <= vec->len) {
+++        if (offset_dacl > 0 && offset_dacl < vec->len &&
+++            vec->len - offset_dacl >= 8) {
++                 v.buf = &vec->buf[offset_dacl];
++                 v.len = vec->len - offset_dacl;
++ 

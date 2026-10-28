@@ -1,0 +1,12 @@
+--- a/buildsystem/compile-libvlc.sh
++++ b/buildsystem/compile-libvlc.sh
+@@ -719,7 +719,8 @@
+ ###########################
+ 
+ VLC_MODULES=$(avlc_find_modules ${REDEFINED_VLC_MODULES_DIR})
+-VLC_CONTRIB_LDFLAGS=$(cd $VLC_CONTRIB/lib/pkgconfig; avlc_pkgconfig --libs $(ls *.pc  | sed -e 's/\.pc$//' | xargs))
++# VLC 3 Chromecast uses protobuf-lite; the full runtime conflicts with it.
++VLC_CONTRIB_LDFLAGS=$(cd $VLC_CONTRIB/lib/pkgconfig; avlc_pkgconfig --libs $(ls *.pc | sed -e '/^protobuf\.pc$/d' -e 's/\.pc$//' | xargs))
+ 
+ echo -e "ndk-build vlc"
+ 

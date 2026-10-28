@@ -1,0 +1,20 @@
+{
+  "scope": "Pinned upstream fixes adapted to retained libraries, preserving network features",
+  "patches": [
+    {
+      "component": "nfs",
+      "file": "nfs-security-backport.patch",
+      "sha256": "0edd9fc45eda91bde609c933c905eaeb4af9e6f45e8f64dca69444a51c2943b2"
+    },
+    {
+      "component": "smb2",
+      "file": "smb2-security-backport.patch",
+      "sha256": "ca3fc2aa0721713b9b773aa27a309bd75691c723bac9a3e35f3f7759a21f0ef8"
+    }
+  ],
+  "adaptations": [
+    "SMB 4.0.0 function names differ; reject short/oversized/odd UTF-16 fields and guard null conversions. FILE_ALL_INFO has a 32-bit wire length, corrected from uint16_t.",
+    "FS_ATTRIBUTE decoder is absent in SMB 4.0.0; CVE-2026-110713 volume path is patched.",
+    "NFS maxsize semantics preserved from upstream 7613236. Backport includes byte length/padding overflow guard absent from older base and zero element-size rejection."
+  ]
+}

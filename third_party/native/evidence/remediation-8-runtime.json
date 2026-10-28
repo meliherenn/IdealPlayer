@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "device": "192.168.1.77:5555",
+  "abi": "armeabi-v7a",
+  "scope": "Physical TV, exact candidate LibVLC DSO; targeted PNG/XML/AOM APIs, no codec/menu/TLS reruns",
+  "exit_code": 0,
+  "stdout": "PASS PNG palette/transparency at NEON boundaries, pixel values, output canaries and malformed chunks\nPASS XML valid namespaces/entities, malformed rejection, QName dictionary reuse and long names\nPASS AOM valid allocation/wrap and dimension/alignment overflow rejection\nPASS all targeted image/XML checks\n",
+  "stderr": "libpng warning: zTXt: invalid block type\nlibpng error: Read Error\n",
+  "libvlc_sha256": "e349aade2352abd4ab33b5260d056961bac202c33bef3b548f463c682a32c9d4",
+  "test_source_sha256": "d50d733456feca9819a93c274fea1d603c016e197105203f606378f2545236ce",
+  "compile_command": [
+    "/home/meliheeren/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/armv7a-linux-androideabi26-clang",
+    "-O1",
+    "-g",
+    "-I/home/meliheeren/IdealPlayer/build/native-remediation-2026-10-03/armv7-source-package/libvlcjni/vlc/contrib/arm-linux-androideabi/include",
+    "-I/home/meliheeren/IdealPlayer/build/native-remediation-2026-10-03/armv7-source-package/libvlcjni/vlc/contrib/arm-linux-androideabi/include/libxml2",
+    "/home/meliheeren/IdealPlayer/scripts/native_image_regression.c",
+    "-L/home/meliheeren/IdealPlayer/build/native-remediation-2026-10-28-images/native/armeabi-v7a",
+    "-Wl,--allow-shlib-undefined",
+    "-l:libvlc.so",
+    "-o",
+    "/home/meliheeren/IdealPlayer/build/native-remediation-2026-10-28-images/native_image_regression"
+  ]
+}

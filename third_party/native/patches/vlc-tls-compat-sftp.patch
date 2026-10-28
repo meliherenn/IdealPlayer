@@ -1,0 +1,54 @@
+--- a/contrib/src/gnutls/rules.mak
++++ b/contrib/src/gnutls/rules.mak
+@@ -31,6 +31,7 @@
+ 
+ gnutls: gnutls-$(GNUTLS_VERSION).tar.xz .sum-gnutls
+ 	$(UNPACK)
++	$(APPLY) $(SRC)/gnutls/crau-old-clang.patch
+ 	$(UPDATE_AUTOCONFIG) && cd $(UNPACK_DIR) && mv config.guess config.sub build-aux
+ 	# fix forbidden UWP call which can't be upstreamed as they won't
+ 	# differentiate for winstore, only _WIN32_WINNT
+--- /dev/null
++++ b/contrib/src/gnutls/crau-old-clang.patch
+@@ -0,0 +1,18 @@
++--- a/lib/crau/crau.h
+++++ b/lib/crau/crau.h
++@@ -255,8 +255,13 @@
++ #    if __has_c_attribute (__maybe_unused__)
++ #     define CRAU_MAYBE_UNUSED [[__maybe_unused__]]
++ #    endif
++-#   elif defined(__GNUC__)
++-#    define CRAU_MAYBE_UNUSED __attribute__((__unused__))
+++#   endif
+++#   ifndef CRAU_MAYBE_UNUSED
+++#    if defined(__GNUC__)
+++#     define CRAU_MAYBE_UNUSED __attribute__((__unused__))
+++#    else
+++#     define CRAU_MAYBE_UNUSED
+++#    endif
++ #   endif
++ #  endif /* CRAU_MAYBE_UNUSED */
++ 
+--- a/contrib/src/ssh2/rules.mak
++++ b/contrib/src/ssh2/rules.mak
+@@ -21,6 +21,7 @@
+ 
+ ssh2: libssh2-$(LIBSSH2_VERSION).tar.gz .sum-ssh2
+ 	$(UNPACK)
++	$(APPLY) $(SRC)/ssh2/sftp-handle-lifetime.patch
+ 	$(UPDATE_AUTOCONFIG)
+ 	$(APPLY) $(SRC)/ssh2/no-tests.patch
+ 	$(APPLY) $(SRC)/ssh2/0001-fix-gcrypt-linking.patch
+--- /dev/null
++++ b/contrib/src/ssh2/sftp-handle-lifetime.patch
+@@ -0,0 +1,10 @@
++--- a/src/sftp.c
+++++ b/src/sftp.c
++@@ -1232,6 +1232,7 @@
++                                "got HANDLE FXOK!");
++ 
++                 LIBSSH2_FREE(session, data);
+++                data = NULL;
++ 
++                 /* silly situation, but check for a HANDLE */
++                 rc = sftp_packet_require(sftp, SSH_FXP_HANDLE,

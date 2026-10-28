@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <!-- This receiver exists only in the benchmark target APK. Requiring DUMP limits
+             invocation to adb shell/system processes; it is absent from Play release builds. -->
+        <receiver
+            android:name=".benchmark.BenchmarkFixtureReceiver"
+            android:exported="true"
+            android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="com.idealplayer.app.benchmark.SETUP" />
+                <action android:name="com.idealplayer.app.benchmark.FIXTURE_STATUS" />
+                <action android:name="com.idealplayer.app.benchmark.PLAYBACK_STATUS" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

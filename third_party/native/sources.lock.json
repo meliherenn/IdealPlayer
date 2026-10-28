@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "status": "SOURCE_PREPARATION_NOT_RELEASE_CLEARANCE",
+  "jellyfin": {
+    "coordinate": "org.jellyfin.media3:media3-ffmpeg-decoder:1.9.0+1",
+    "aar_sha256": "dfc726c8bc9d9db02e15b160f886a03bdd6dd51e88ba2de89aa74caf5e8cd181",
+    "sources": [
+      {
+        "name": "jellyfin",
+        "file": "jellyfin.tar.gz",
+        "url": "https://codeload.github.com/jellyfin/jellyfin-androidx-media/tar.gz/af9ee4e26b2045e3ea6f2ebf4a18ac8ebfeae396",
+        "sha256": "fe27e86310eb466bb66c86dd86c7224a560bbd0b325c3338bdc9690214b8d66d",
+        "destination": "jellyfin",
+        "commit": "af9ee4e26b2045e3ea6f2ebf4a18ac8ebfeae396"
+      },
+      {
+        "name": "jellyfin-media",
+        "file": "jellyfin-media.tar.gz",
+        "url": "https://codeload.github.com/androidx/media/tar.gz/7cc1056f840ce226598d3b990d4a6f7cd17e2831",
+        "sha256": "f293119f56713ec293ebbc8fa80289baf9dc6b2e73bdc84f944e3977b91f2d23",
+        "destination": "jellyfin/media",
+        "commit": "7cc1056f840ce226598d3b990d4a6f7cd17e2831"
+      },
+      {
+        "name": "jellyfin-ffmpeg",
+        "file": "jellyfin-ffmpeg.tar.gz",
+        "url": "https://codeload.github.com/FFmpeg/FFmpeg/tar.gz/37c90f55d8b6c3948c79449b04755527b4ae1351",
+        "sha256": "7d1674419082f7370f93e45098a22bec84dc719a3f98c1bdd0796f10dcc10913",
+        "destination": "jellyfin/ffmpeg",
+        "commit": "37c90f55d8b6c3948c79449b04755527b4ae1351"
+      }
+    ]
+  },
+  "vlc_candidate": {
+    "base_coordinate": "org.videolan.android:libvlc-all:3.7.2",
+    "production_replacement": false,
+    "sources": [
+      {
+        "name": "libvlcjni",
+        "file": "libvlcjni.tar.gz",
+        "url": "https://code.videolan.org/videolan/libvlcjni/-/archive/f6d8607210adba08f504e4b065f18620ba652de6/libvlcjni-f6d8607210adba08f504e4b065f18620ba652de6.tar.gz",
+        "sha256": "507c52bc75853bb0dd5461568e873ebed8a632d4bbaa096f62faadd832b6b6f9",
+        "destination": "libvlcjni",
+        "commit": "f6d8607210adba08f504e4b065f18620ba652de6"
+      },
+      {
+        "name": "vlc",
+        "file": "vlc.tar.gz",
+        "url": "https://codeload.github.com/videolan/vlc/tar.gz/4c608da16c33560821be7e5c1ad4e34bf5a65398",
+        "sha256": "25aea2f09a5473bc5f6cf5645881c04b982bc1be0bbdec15f805b14c430dfc0c",
+        "destination": "libvlcjni/vlc",
+        "commit": "4c608da16c33560821be7e5c1ad4e34bf5a65398"
+      },
+      {
+        "name": "ffmpeg",
+        "file": "ffmpeg-8.1.2.tar.xz",
+        "url": "https://ffmpeg.org/releases/ffmpeg-8.1.2.tar.xz",
+        "sha256": "464beb5e7bf0c311e68b45ae2f04e9cc2af88851abb4082231742a74d97b524c",
+        "destination": null
+      }
+    ],
+    "recipe_patch": {
+      "file": "patches/vlc-ffmpeg-security.patch",
+      "sha256": "2ac9600e2aab9d428963c08d5f2cd020c8f9ee4ad50551bc66fba918cd2ef110"
+    },
+    "security_patches": [
+      {
+        "id": "CVE-2026-64830",
+        "commit": "dbd495f066a85ba96b17433f4306582aa37c3951",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/dbd495f066a85ba96b17433f4306582aa37c3951.patch",
+        "file": "patches/CVE-2026-64830.patch",
+        "sha256": "9b8696e8543c2e5b7dd8be3ea75ef034537cfaf22e69b972f3bc4536af2b6869",
+        "recipe_name": "CVE-2026-64830-dbd495f066a85ba96b17433f4306582aa37c3951.patch"
+      },
+      {
+        "id": "CVE-2026-64832",
+        "commit": "4c6217477fc64305055b37d9d1d0d76d30e37f97",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/4c6217477fc64305055b37d9d1d0d76d30e37f97.patch",
+        "file": "patches/CVE-2026-64832.patch",
+        "sha256": "87d29f7136cd861884a935278ca379fa381cd7d1c7d6295de102c1a3f6af526f",
+        "recipe_name": "CVE-2026-64832-4c6217477fc64305055b37d9d1d0d76d30e37f97.patch"
+      },
+      {
+        "id": "CVE-2026-64835",
+        "commit": "1836ef96846937a6cc2443698a693104f5c0b21e",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/1836ef96846937a6cc2443698a693104f5c0b21e.patch",
+        "file": "patches/CVE-2026-64835.patch",
+        "sha256": "2a8944b7f3c2e09ae7af31d88c4b6aca270c856ce8456db865ddc7d12c901459",
+        "recipe_name": "CVE-2026-64835-1836ef96846937a6cc2443698a693104f5c0b21e.patch"
+      },
+      {
+        "id": "CVE-2026-65703",
+        "commit": "fd3ee52fab34d98a95b787d0b5ff45685766200c",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/fd3ee52fab34d98a95b787d0b5ff45685766200c.patch",
+        "file": "patches/CVE-2026-65703.patch",
+        "sha256": "f439aa86e1bd660fa76dd805d9d4236d1e149065324e14cbd575ec3d9ab26ec3",
+        "recipe_name": "CVE-2026-65703-fd3ee52fab34d98a95b787d0b5ff45685766200c.patch"
+      },
+      {
+        "id": "CVE-2026-65704",
+        "commit": "de771bd52774a52d45b0e2c82e56995a1ef40df7",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/de771bd52774a52d45b0e2c82e56995a1ef40df7.patch",
+        "file": "patches/CVE-2026-65704.patch",
+        "sha256": "799bf1362892a4ff9f3738dcd9d8985bb4e94c50e87ff558926c5649a19a34b0",
+        "recipe_name": "CVE-2026-65704-de771bd52774a52d45b0e2c82e56995a1ef40df7.patch"
+      },
+      {
+        "id": "CVE-2026-66037",
+        "commit": "86708357d126af84c16f80d9c57335d1e8c845c5",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/86708357d126af84c16f80d9c57335d1e8c845c5.patch",
+        "file": "patches/CVE-2026-66037.patch",
+        "sha256": "b800c259300e41ba3a35a626953ca7665648e7de9955e168d8477d7414e7e3f1",
+        "recipe_name": "CVE-2026-66037-86708357d126af84c16f80d9c57335d1e8c845c5.patch"
+      },
+      {
+        "id": "CVE-2026-66038",
+        "commit": "e7cbfd1c507b57a806a5825b87d609963e862c8c",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/e7cbfd1c507b57a806a5825b87d609963e862c8c.patch",
+        "file": "patches/CVE-2026-66038.patch",
+        "sha256": "32a747708b22873fc4751d599f375555f4e5012355bca17476e22f0f02f53ed5",
+        "recipe_name": "CVE-2026-66038-e7cbfd1c507b57a806a5825b87d609963e862c8c.patch"
+      },
+      {
+        "id": "CVE-2026-66039",
+        "commit": "aafb5c655edc76a753275c383ebb139feb032718",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/aafb5c655edc76a753275c383ebb139feb032718.patch",
+        "file": "patches/CVE-2026-66039.patch",
+        "sha256": "1c2a4c717b32b1d4bee2a746ef6e403da6ed1dbf89a8a7a4fddd8a17e4d0c06a",
+        "recipe_name": "CVE-2026-66039-aafb5c655edc76a753275c383ebb139feb032718.patch"
+      },
+      {
+        "id": "CVE-2026-66040",
+        "commit": "b506fafec9a19fcbc2be5271875fd4a63d6615bc",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/b506fafec9a19fcbc2be5271875fd4a63d6615bc.patch",
+        "file": "patches/CVE-2026-66040.patch",
+        "sha256": "614ef4066696c4f809999b60c540da3e661d628546dabebb6fb10f7d11112fb8",
+        "recipe_name": "CVE-2026-66040-b506fafec9a19fcbc2be5271875fd4a63d6615bc.patch"
+      },
+      {
+        "id": "CVE-2026-70629",
+        "commit": "cd1f545cf27ba08f6f5b31b1e92665d7874d4fd7",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/cd1f545cf27ba08f6f5b31b1e92665d7874d4fd7.patch",
+        "file": "patches/CVE-2026-70629.patch",
+        "sha256": "415413b2ed4e09b229af8cc87427e00375a00361570457c21db10b1f3b92211b",
+        "recipe_name": "CVE-2026-70629-cd1f545cf27ba08f6f5b31b1e92665d7874d4fd7.patch"
+      },
+      {
+        "id": "CVE-2026-70631",
+        "commit": "2f234ea34c81288e3840fca632dd16481d8de39f",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/2f234ea34c81288e3840fca632dd16481d8de39f.patch",
+        "file": "patches/CVE-2026-70631.patch",
+        "sha256": "aa977ef77d38f1dafaba5f2d8dda823206580fcb4e18ed228f7368d8ada28656",
+        "recipe_name": "CVE-2026-70631-2f234ea34c81288e3840fca632dd16481d8de39f.patch"
+      },
+      {
+        "id": "CVE-2026-107660",
+        "commit": "0cd2a70eacd510c2efed48b9fc177c7cb2bc549f",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/0cd2a70eacd510c2efed48b9fc177c7cb2bc549f.patch",
+        "file": "patches/CVE-2026-107660.patch",
+        "sha256": "42c0b1fbfc63e4c0ed72eee1f35b2d72f1c88c210f19553c19f11fac66708dec",
+        "recipe_name": "CVE-2026-107660-0cd2a70eacd510c2efed48b9fc177c7cb2bc549f.patch"
+      },
+      {
+        "id": "CVE-2026-107695",
+        "commit": "a4ddaba8bb7811b1a3afaad59fe6555e720d4754",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/a4ddaba8bb7811b1a3afaad59fe6555e720d4754.patch",
+        "file": "patches/CVE-2026-107695.patch",
+        "sha256": "d1b4ade56c227892267a6d9a1206c4cb129142ef4b7ec435e88c21ed625218c3",
+        "recipe_name": "CVE-2026-107695-a4ddaba8bb7811b1a3afaad59fe6555e720d4754.patch"
+      },
+      {
+        "id": "CVE-2026-107697",
+        "commit": "01044d04536eec6e2f5f48ef404cf45d15feb461",
+        "source_url": "https://github.com/FFmpeg/FFmpeg/commit/01044d04536eec6e2f5f48ef404cf45d15feb461.patch",
+        "file": "patches/CVE-2026-107697.patch",
+        "sha256": "500cd477cab13d0a99722183a289475fdf8b2863bc991233cf48f1c7f985f64b",
+        "recipe_name": "CVE-2026-107697-01044d04536eec6e2f5f48ef404cf45d15feb461.patch"
+      }
+    ],
+    "excluded_by_unchanged_build": [
+      "CVE-2026-65705",
+      "CVE-2026-66036"
+    ],
+    "remaining": [
+      "Compile every shipped ABI and verify native bytes",
+      "Run codec/caption/recovery/resume and 16 KB checks",
+      "Complete all VLC contrib source/license inventory",
+      "Do not mark the current shipped AAR fixed by these source-only patches"
+    ],
+    "build_patches": [
+      {
+        "file": "patches/vlc-gpg-error-pkgconfig.patch",
+        "sha256": "1488b7e69afa0edca8575c8708a847a0b62f25ab67a05a7773de057a2ee7b2aa",
+        "purpose": "Generate the missing pkg-config descriptor for the already selected libgpg-error 1.27; retain the native library version and features"
+      },
+      {
+        "file": "patches/jni-protobuf-lite-link.patch",
+        "sha256": "ef8f258b9988baaa5555de1465f919be05104b3ffadaa1307bd8d35924856c46",
+        "target": "libvlcjni",
+        "purpose": "Select protobuf-lite, the runtime required by VLC 3 Chromecast, instead of requesting both conflicting protobuf runtime packages during final linking"
+      },
+      {
+        "file": "patches/jni-live-track-snapshot.patch",
+        "sha256": "fb52acdc3901c379e367b481bd4e13c022cb43120e6be5eb7e662606f0f6f3d7",
+        "target": "libvlcjni",
+        "purpose": "Refresh the Java Media track snapshot at enumeration boundaries so live track additions and late video dimensions are visible; retain indexed snapshot consistency and all native bytes/public signatures"
+      },
+      {
+        "file": "patches/vlc-gcrypt-T8211.patch",
+        "sha256": "e908ab58c776ae2ad0e4ef29211bfb0153859a2f3a5cd5fd9ddbdb3b876472c6",
+        "target": "libvlcjni/vlc",
+        "scope": "Backport Libgcrypt T8211 / CVE-2026-41989 without changing feature configuration",
+        "upstream_commit": "6da0152595aabb569c88c6571d2fdf68e112ee45",
+        "upstream_patch_sha256": "8c1e1810db370c015078ff47aeb6f50a4e33710f9c62466ac76d2c57b851c098",
+        "upstream_url": "https://github.com/gpg/libgcrypt/commit/6da0152595aabb569c88c6571d2fdf68e112ee45.patch"
+      },
+      {
+        "file": "patches/vlc-tls-security.patch",
+        "sha256": "f923908f0ea02f28fe78ecec3b6f7d90ad71ca068fe47556ec71ed91a2a85a3c",
+        "target": "libvlcjni/vlc",
+        "scope": "GnuTLS 3.8.13 security release and required Nettle 3.10.2 dependency; preserve existing configuration",
+        "sources": [
+          {
+            "package": "gnutls",
+            "version": "3.8.13",
+            "file": "gnutls-3.8.13.tar.xz",
+            "url": "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.13.tar.xz",
+            "sha256": "ffed8ec1bf09c2426d4f14aae377de4753b53e537d685e604e99a8b16ca9c97e",
+            "sha512": "71bf189a836fd18d58b9e995d4bfcecdb0aae6129dfd44247b98422b2f127dd868f9905d28fad2ca05afd919a0e6b3c8eebb6b95804067d3a8dab31ebdc72453",
+            "bytes": 7275324
+          },
+          {
+            "package": "nettle",
+            "version": "3.10.2",
+            "file": "nettle-3.10.2.tar.gz",
+            "url": "https://www.lysator.liu.se/~nisse/archive/nettle-3.10.2.tar.gz",
+            "sha256": "fe9ff51cb1f2abb5e65a6b8c10a92da0ab5ab6eaf26e7fc2b675c45f1fb519b5",
+            "sha512": "bf37ddd7dca8e78488da2a5286dcf16761d527d620572b42f2ad27bb8ee8c12999d92b0272e06f53766e7155a3f4a1ab7ad9c4b1c3caec47c031878b6b1772fb",
+            "bytes": 2644644
+          }
+        ]
+      },
+      {
+        "file": "patches/vlc-tls-compat-sftp.patch",
+        "sha256": "dc4facb9db232da6b1a9aff7fa7f32f65d8806ba2b6ce6ae55b122f9a64d4b93",
+        "target": "libvlcjni/vlc",
+        "scope": "Old-Clang unused-attribute fallback (no feature change); libssh2 SFTP upstream null-after-free backport",
+        "sftp_upstream_commit": "5e4776146552d898b9c0e1b313cd093fa8dc92d0"
+      },
+      {
+        "file": "patches/vlc-network-security.patch",
+        "sha256": "00ab5a301f0bea113e6326ea0c05b1ea48fcb885b96d82fa84a30244f006758e",
+        "target": "libvlcjni/vlc"
+      },
+      {
+        "file": "patches/vlc-image-security.patch",
+        "sha256": "4a06ceed70a0d1a9e4a48301b78c278743edf46174239f9e0b1cc7582274b367",
+        "target": "libvlcjni/vlc"
+      }
+    ]
+  }
+}

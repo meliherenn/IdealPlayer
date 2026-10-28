@@ -1,0 +1,573 @@
+{
+  "status": "BUILT_API_VERIFIED_RUNTIME_PENDING",
+  "coordinate": "org.videolan.android:libvlc-all:3.7.2-idealplayer-remediation.8",
+  "previous_aar_sha256": "41f9ff9c567aac83821d9e2f118881de684dd638f495df36e5d06e4f6625d9a9",
+  "source_lock_sha256": "e6ae601369336cb92d99375d6ec7bfdad5aa8b09c17340bcd70326c1b0280120",
+  "native_libraries": [
+    {
+      "entry": "jni/arm64-v8a/libc++_shared.so",
+      "sha256": "ab4e6c71b96b851de45a8a9bd86369e7dbc2130a44b3b4520564be94847910f2",
+      "previous_sha256": "ab4e6c71b96b851de45a8a9bd86369e7dbc2130a44b3b4520564be94847910f2",
+      "bytes": 9236352,
+      "load_alignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "entry": "jni/arm64-v8a/libvlc.so",
+      "sha256": "88ef90bb27d015b5d66cca5c81c678b611bd7864e783797ad5dc2fd0d22ff1e2",
+      "previous_sha256": "9ee74d208141a77a0b6c949803a524fe385a19ed16d67aa9e42a230e223b4873",
+      "bytes": 44972848,
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 340
+    },
+    {
+      "entry": "jni/arm64-v8a/libvlcjni.so",
+      "sha256": "b0ebde2b65bcc3011f52fae299f7cc716c58d486c949b8e37648c70af9f09024",
+      "previous_sha256": "b0ebde2b65bcc3011f52fae299f7cc716c58d486c949b8e37648c70af9f09024",
+      "bytes": 94296,
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 122
+    },
+    {
+      "entry": "jni/armeabi-v7a/libc++_shared.so",
+      "sha256": "092a44574c247982e265743acb1227e11a2f079a765814fef1b627dbfb2b79d5",
+      "previous_sha256": "092a44574c247982e265743acb1227e11a2f079a765814fef1b627dbfb2b79d5",
+      "bytes": 554808,
+      "load_alignments": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "entry": "jni/armeabi-v7a/libvlc.so",
+      "sha256": "e349aade2352abd4ab33b5260d056961bac202c33bef3b548f463c682a32c9d4",
+      "previous_sha256": "daa13ce89efdbebdc8577dc1bb13ca2b712940e5548a29d04959b656c8479ce1",
+      "bytes": 39663832,
+      "load_alignments": [
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 340
+    },
+    {
+      "entry": "jni/armeabi-v7a/libvlcjni.so",
+      "sha256": "7d00d5dacf6253d119a78f7738ea9afc37e80f7b4b2f1969dd646e14fb369754",
+      "previous_sha256": "7d00d5dacf6253d119a78f7738ea9afc37e80f7b4b2f1969dd646e14fb369754",
+      "bytes": 83544,
+      "load_alignments": [
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 122
+    },
+    {
+      "entry": "jni/x86_64/libc++_shared.so",
+      "sha256": "e4cd73c8a3607269f3be58d15c21f78bff112e27f9398d6261e5f965668f8746",
+      "previous_sha256": "e4cd73c8a3607269f3be58d15c21f78bff112e27f9398d6261e5f965668f8746",
+      "bytes": 8808664,
+      "load_alignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "entry": "jni/x86_64/libvlc.so",
+      "sha256": "652ea5c2ffa310f7958a28398d9064e1d1a282dcb94494c92844d2414d281ced",
+      "previous_sha256": "eb867490cd77ce376a4d445c2d262bc8b96a427575dcc5fec479313f1c62366c",
+      "bytes": 53354432,
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 340
+    },
+    {
+      "entry": "jni/x86_64/libvlcjni.so",
+      "sha256": "ed25ad4feba5a5c5892bb1736df21070cbbb6c9787612e41b46c63b510ca4f08",
+      "previous_sha256": "ed25ad4feba5a5c5892bb1736df21070cbbb6c9787612e41b46c63b510ca4f08",
+      "bytes": 94008,
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 122
+    },
+    {
+      "entry": "jni/x86/libc++_shared.so",
+      "sha256": "3051dd001301b81024779099e11f657f10e983d02aa1b16f18e711ec33685314",
+      "previous_sha256": "3051dd001301b81024779099e11f657f10e983d02aa1b16f18e711ec33685314",
+      "bytes": 931652,
+      "load_alignments": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "entry": "jni/x86/libvlc.so",
+      "sha256": "7ed7c5ea244a9a4cbea922309b1a22736bb83fbc713efc6df48256eed23816d2",
+      "previous_sha256": "46cb6a46dd85b8ab28d3aa2fb09161f8634cc8c40568854f302f6fff0b157cf8",
+      "bytes": 49133428,
+      "load_alignments": [
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 340
+    },
+    {
+      "entry": "jni/x86/libvlcjni.so",
+      "sha256": "f19e8e87b6cd8a0cc5bef96f4879ce6784e3806394c23852868a0b6ac2fb00c9",
+      "previous_sha256": "f19e8e87b6cd8a0cc5bef96f4879ce6784e3806394c23852868a0b6ac2fb00c9",
+      "bytes": 116200,
+      "load_alignments": [
+        16384,
+        16384
+      ],
+      "unchanged_public_symbols": 122
+    }
+  ],
+  "preserved_configurations": [
+    {
+      "abi": "arm64-v8a",
+      "file": "vlc-config.h",
+      "sha256": "ed671c569454518db3a9b00216d5e673b0ca2ba4767358ac8949ffa9848cfb62"
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "ffmpeg-config.h",
+      "sha256": "b8c39b4188085f5861bbcf384c161c2fbfebc0a6bd10683fc611e7444276f343"
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "ffmpeg-config.mak",
+      "sha256": "3f966d324abb1903f326d0c7ad54e043f3942b2690cd55de502a6b52b76925bc"
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "contrib-config.mak",
+      "sha256": "a2bafb2850c06fa52e5e5108b30c421096c99cf3b0ececcef5f85f54da34f238"
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "buildsystem/compile-libvlc.sh",
+      "sha256": "9f63ec4bb9391c0d1920c8c5e7cc7495b635222fdba1545935045e75ccbd96af"
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libvlc/jni/Android.mk",
+      "sha256": "af0b4f3d47b39bdeab6ba87161f0fe7c332a0593c72972943dda922200cf73c2"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "file": "vlc-config.h",
+      "sha256": "eb071961f43f4c6e892f7de7234f43e1c9bc84be817b4280dca6a4de36c14e23"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "file": "ffmpeg-config.h",
+      "sha256": "50161ee7119209193615a5702da9c3d44ace8cc8a33d8a074b8914c070d1b562"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "file": "ffmpeg-config.mak",
+      "sha256": "a4a7fb0aaee5d25a5f5ec2f69b7068c00e6d252d8e9f4cf26ed271012eee6033"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "file": "contrib-config.mak",
+      "sha256": "dc4770e6e2ab2c8b5d9b0aaaf61c4489272d95451f8231d87db07a6b350824c0"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "file": "buildsystem/compile-libvlc.sh",
+      "sha256": "9f63ec4bb9391c0d1920c8c5e7cc7495b635222fdba1545935045e75ccbd96af"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "file": "libvlc/jni/Android.mk",
+      "sha256": "af0b4f3d47b39bdeab6ba87161f0fe7c332a0593c72972943dda922200cf73c2"
+    },
+    {
+      "abi": "x86_64",
+      "file": "vlc-config.h",
+      "sha256": "54195082a4bcead459708d130ee662e8a23ddbd3b012ea1ffb986def76a252a5"
+    },
+    {
+      "abi": "x86_64",
+      "file": "ffmpeg-config.h",
+      "sha256": "5bb739c13e02bf414f6b0dfa1b62901b39a61f49e3b55236c6f25e4de2bdcde9"
+    },
+    {
+      "abi": "x86_64",
+      "file": "ffmpeg-config.mak",
+      "sha256": "21fb9ded138747a0fc5de9f2e37163a71bcd851b684a8ad7dcf080b77aad94c3"
+    },
+    {
+      "abi": "x86_64",
+      "file": "contrib-config.mak",
+      "sha256": "42b27975e0e6bb1a7b64a89150f0114f2cd77801e1b80442d75f2c377cfecff5"
+    },
+    {
+      "abi": "x86_64",
+      "file": "buildsystem/compile-libvlc.sh",
+      "sha256": "9f63ec4bb9391c0d1920c8c5e7cc7495b635222fdba1545935045e75ccbd96af"
+    },
+    {
+      "abi": "x86_64",
+      "file": "libvlc/jni/Android.mk",
+      "sha256": "af0b4f3d47b39bdeab6ba87161f0fe7c332a0593c72972943dda922200cf73c2"
+    },
+    {
+      "abi": "x86",
+      "file": "vlc-config.h",
+      "sha256": "ecd51a36017e2da178da48ae01f0b8ac02d26a93b024dfe0891ab3e9b754ad07"
+    },
+    {
+      "abi": "x86",
+      "file": "ffmpeg-config.h",
+      "sha256": "7862a03757d49df0e247e75f5776ef2ac7a36744694509c078271a20f80d1b15"
+    },
+    {
+      "abi": "x86",
+      "file": "ffmpeg-config.mak",
+      "sha256": "56ad895fefa3042795271503ac6144057e51ac1bb9a7d9950d10374c7d6827f6"
+    },
+    {
+      "abi": "x86",
+      "file": "contrib-config.mak",
+      "sha256": "1d94cb76357e42bccc4ebcdf18451ebcc6a8cb8f2e3d8d75c132c934a547c79e"
+    },
+    {
+      "abi": "x86",
+      "file": "buildsystem/compile-libvlc.sh",
+      "sha256": "9f63ec4bb9391c0d1920c8c5e7cc7495b635222fdba1545935045e75ccbd96af"
+    },
+    {
+      "abi": "x86",
+      "file": "libvlc/jni/Android.mk",
+      "sha256": "af0b4f3d47b39bdeab6ba87161f0fe7c332a0593c72972943dda922200cf73c2"
+    }
+  ],
+  "preserved_ffmpeg_patches": [
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-64830",
+      "sha256": "9b8696e8543c2e5b7dd8be3ea75ef034537cfaf22e69b972f3bc4536af2b6869"
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-64832",
+      "sha256": "87d29f7136cd861884a935278ca379fa381cd7d1c7d6295de102c1a3f6af526f"
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-64835",
+      "sha256": "2a8944b7f3c2e09ae7af31d88c4b6aca270c856ce8456db865ddc7d12c901459"
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-65703",
+      "sha256": "f439aa86e1bd660fa76dd805d9d4236d1e149065324e14cbd575ec3d9ab26ec3"
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-65704",
+      "sha256": "799bf1362892a4ff9f3738dcd9d8985bb4e94c50e87ff558926c5649a19a34b0"
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-66037",
+      "sha256": "b800c259300e41ba3a35a626953ca7665648e7de9955e168d8477d7414e7e3f1"
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-66038",
+      "sha256": "32a747708b22873fc4751d599f375555f4e5012355bca17476e22f0f02f53ed5"
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-66039",
+      "sha256": "1c2a4c717b32b1d4bee2a746ef6e403da6ed1dbf89a8a7a4fddd8a17e4d0c06a"
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-66040",
+      "sha256": "614ef4066696c4f809999b60c540da3e661d628546dabebb6fb10f7d11112fb8"
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-70629",
+      "sha256": "415413b2ed4e09b229af8cc87427e00375a00361570457c21db10b1f3b92211b"
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-70631",
+      "sha256": "aa977ef77d38f1dafaba5f2d8dda823206580fcb4e18ed228f7368d8ada28656"
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-107660",
+      "sha256": "42c0b1fbfc63e4c0ed72eee1f35b2d72f1c88c210f19553c19f11fac66708dec"
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-107695",
+      "sha256": "d1b4ade56c227892267a6d9a1206c4cb129142ef4b7ec435e88c21ed625218c3"
+    },
+    {
+      "abi": "arm64-v8a",
+      "id": "CVE-2026-107697",
+      "sha256": "500cd477cab13d0a99722183a289475fdf8b2863bc991233cf48f1c7f985f64b"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-64830",
+      "sha256": "9b8696e8543c2e5b7dd8be3ea75ef034537cfaf22e69b972f3bc4536af2b6869"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-64832",
+      "sha256": "87d29f7136cd861884a935278ca379fa381cd7d1c7d6295de102c1a3f6af526f"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-64835",
+      "sha256": "2a8944b7f3c2e09ae7af31d88c4b6aca270c856ce8456db865ddc7d12c901459"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-65703",
+      "sha256": "f439aa86e1bd660fa76dd805d9d4236d1e149065324e14cbd575ec3d9ab26ec3"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-65704",
+      "sha256": "799bf1362892a4ff9f3738dcd9d8985bb4e94c50e87ff558926c5649a19a34b0"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-66037",
+      "sha256": "b800c259300e41ba3a35a626953ca7665648e7de9955e168d8477d7414e7e3f1"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-66038",
+      "sha256": "32a747708b22873fc4751d599f375555f4e5012355bca17476e22f0f02f53ed5"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-66039",
+      "sha256": "1c2a4c717b32b1d4bee2a746ef6e403da6ed1dbf89a8a7a4fddd8a17e4d0c06a"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-66040",
+      "sha256": "614ef4066696c4f809999b60c540da3e661d628546dabebb6fb10f7d11112fb8"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-70629",
+      "sha256": "415413b2ed4e09b229af8cc87427e00375a00361570457c21db10b1f3b92211b"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-70631",
+      "sha256": "aa977ef77d38f1dafaba5f2d8dda823206580fcb4e18ed228f7368d8ada28656"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-107660",
+      "sha256": "42c0b1fbfc63e4c0ed72eee1f35b2d72f1c88c210f19553c19f11fac66708dec"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-107695",
+      "sha256": "d1b4ade56c227892267a6d9a1206c4cb129142ef4b7ec435e88c21ed625218c3"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "id": "CVE-2026-107697",
+      "sha256": "500cd477cab13d0a99722183a289475fdf8b2863bc991233cf48f1c7f985f64b"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-64830",
+      "sha256": "9b8696e8543c2e5b7dd8be3ea75ef034537cfaf22e69b972f3bc4536af2b6869"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-64832",
+      "sha256": "87d29f7136cd861884a935278ca379fa381cd7d1c7d6295de102c1a3f6af526f"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-64835",
+      "sha256": "2a8944b7f3c2e09ae7af31d88c4b6aca270c856ce8456db865ddc7d12c901459"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-65703",
+      "sha256": "f439aa86e1bd660fa76dd805d9d4236d1e149065324e14cbd575ec3d9ab26ec3"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-65704",
+      "sha256": "799bf1362892a4ff9f3738dcd9d8985bb4e94c50e87ff558926c5649a19a34b0"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-66037",
+      "sha256": "b800c259300e41ba3a35a626953ca7665648e7de9955e168d8477d7414e7e3f1"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-66038",
+      "sha256": "32a747708b22873fc4751d599f375555f4e5012355bca17476e22f0f02f53ed5"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-66039",
+      "sha256": "1c2a4c717b32b1d4bee2a746ef6e403da6ed1dbf89a8a7a4fddd8a17e4d0c06a"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-66040",
+      "sha256": "614ef4066696c4f809999b60c540da3e661d628546dabebb6fb10f7d11112fb8"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-70629",
+      "sha256": "415413b2ed4e09b229af8cc87427e00375a00361570457c21db10b1f3b92211b"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-70631",
+      "sha256": "aa977ef77d38f1dafaba5f2d8dda823206580fcb4e18ed228f7368d8ada28656"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-107660",
+      "sha256": "42c0b1fbfc63e4c0ed72eee1f35b2d72f1c88c210f19553c19f11fac66708dec"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-107695",
+      "sha256": "d1b4ade56c227892267a6d9a1206c4cb129142ef4b7ec435e88c21ed625218c3"
+    },
+    {
+      "abi": "x86_64",
+      "id": "CVE-2026-107697",
+      "sha256": "500cd477cab13d0a99722183a289475fdf8b2863bc991233cf48f1c7f985f64b"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-64830",
+      "sha256": "9b8696e8543c2e5b7dd8be3ea75ef034537cfaf22e69b972f3bc4536af2b6869"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-64832",
+      "sha256": "87d29f7136cd861884a935278ca379fa381cd7d1c7d6295de102c1a3f6af526f"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-64835",
+      "sha256": "2a8944b7f3c2e09ae7af31d88c4b6aca270c856ce8456db865ddc7d12c901459"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-65703",
+      "sha256": "f439aa86e1bd660fa76dd805d9d4236d1e149065324e14cbd575ec3d9ab26ec3"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-65704",
+      "sha256": "799bf1362892a4ff9f3738dcd9d8985bb4e94c50e87ff558926c5649a19a34b0"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-66037",
+      "sha256": "b800c259300e41ba3a35a626953ca7665648e7de9955e168d8477d7414e7e3f1"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-66038",
+      "sha256": "32a747708b22873fc4751d599f375555f4e5012355bca17476e22f0f02f53ed5"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-66039",
+      "sha256": "1c2a4c717b32b1d4bee2a746ef6e403da6ed1dbf89a8a7a4fddd8a17e4d0c06a"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-66040",
+      "sha256": "614ef4066696c4f809999b60c540da3e661d628546dabebb6fb10f7d11112fb8"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-70629",
+      "sha256": "415413b2ed4e09b229af8cc87427e00375a00361570457c21db10b1f3b92211b"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-70631",
+      "sha256": "aa977ef77d38f1dafaba5f2d8dda823206580fcb4e18ed228f7368d8ada28656"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-107660",
+      "sha256": "42c0b1fbfc63e4c0ed72eee1f35b2d72f1c88c210f19553c19f11fac66708dec"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-107695",
+      "sha256": "d1b4ade56c227892267a6d9a1206c4cb129142ef4b7ec435e88c21ed625218c3"
+    },
+    {
+      "abi": "x86",
+      "id": "CVE-2026-107697",
+      "sha256": "500cd477cab13d0a99722183a289475fdf8b2863bc991233cf48f1c7f985f64b"
+    }
+  ],
+  "scope": "PNG 1.6.59, XML 2.15.4 and AOM overflow backport; TLS/SMB/NFS archives unchanged. Java/API and existing feature configurations preserved.",
+  "unchanged_classes_jar_sha256": "0aaa40d9804a5769698e719619ee2a5a5f9c44168a66f5d008322c4e12ac57c2",
+  "aar_sha256": "9028ee526d11d132b5e77e1d7abe3a696d04d3dd4eba16fb8965820a5b316d13",
+  "pom_sha256": "908675d62c35ccdacef29e9a6532c581202af4aa90d87f2eeb66efc78629cd0f",
+  "gcrypt_patch_sha256": "8c1e1810db370c015078ff47aeb6f50a4e33710f9c62466ac76d2c57b851c098",
+  "tls_upgrades": [
+    {
+      "package": "gnutls",
+      "version": "3.8.13",
+      "file": "gnutls-3.8.13.tar.xz",
+      "url": "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.13.tar.xz",
+      "sha256": "ffed8ec1bf09c2426d4f14aae377de4753b53e537d685e604e99a8b16ca9c97e",
+      "sha512": "71bf189a836fd18d58b9e995d4bfcecdb0aae6129dfd44247b98422b2f127dd868f9905d28fad2ca05afd919a0e6b3c8eebb6b95804067d3a8dab31ebdc72453",
+      "bytes": 7275324
+    },
+    {
+      "package": "nettle",
+      "version": "3.10.2",
+      "file": "nettle-3.10.2.tar.gz",
+      "url": "https://www.lysator.liu.se/~nisse/archive/nettle-3.10.2.tar.gz",
+      "sha256": "fe9ff51cb1f2abb5e65a6b8c10a92da0ab5ab6eaf26e7fc2b675c45f1fb519b5",
+      "sha512": "bf37ddd7dca8e78488da2a5286dcf16761d527d620572b42f2ad27bb8ee8c12999d92b0272e06f53766e7155a3f4a1ab7ad9c4b1c3caec47c031878b6b1772fb",
+      "bytes": 2644644
+    }
+  ]
+}

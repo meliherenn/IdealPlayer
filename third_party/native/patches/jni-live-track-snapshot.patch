@@ -1,0 +1,15 @@
+--- a/libvlc/src/org/videolan/libvlc/Media.java
++++ b/libvlc/src/org/videolan/libvlc/Media.java
+@@ -393,7 +393,11 @@
+     /**
+      * Get the Track count.
+      */
+-    public int getTrackCount() {
++    public synchronized int getTrackCount() {
++        // Start a fresh snapshot for each enumeration. Live inputs can add tracks
++        // or dimensions after an early read, without a MediaParsedChanged event.
++        // getTrack(index) continues to use this snapshot for the enumeration.
++        mNativeTracks = null;
+         final Track[] tracks = getTracks();
+         return tracks != null ? tracks.length : 0;
+     }

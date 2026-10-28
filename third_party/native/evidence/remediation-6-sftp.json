@@ -1,0 +1,8 @@
+{
+  "upstream_commit": "5e4776146552d898b9c0e1b313cd093fa8dc92d0",
+  "id": "CVE-2026-66032",
+  "adaptation": "Equivalent one-line nulling backported to 1.10.0 (LIBSSH2_FREE spelling, no API change)",
+  "source_before_sha256": "9090319e2732c400a344c78f3e9695ca6e1a3466159ffdae3e3c5f52b10b9586",
+  "source_after_sha256": "e749193b4317945852e13b0ba4fa56b038520f602802322ad11839dd8f0acc07",
+  "patch_sha256": "717b9f9023a8a9af674bce58b62b725d35f08722fe18c8bbf9a956b5f263c716"
+}

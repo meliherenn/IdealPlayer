@@ -1,0 +1,295 @@
+{
+  "status": "BUILT_NOT_RUNTIME_VERIFIED",
+  "abi": "x86",
+  "started_at": "2026-10-28T12:39:48.930676+00:00",
+  "source_lock_sha256": "e6ae601369336cb92d99375d6ec7bfdad5aa8b09c17340bcd70326c1b0280120",
+  "steps": [
+    {
+      "command": [
+        "patch",
+        "-p1",
+        "--fuzz=0",
+        "--batch",
+        "-i",
+        "/home/meliheeren/IdealPlayer/build/native-remediation-2026-10-28-images/recipe/patches/vlc-image-security.patch"
+      ],
+      "cwd": "/home/meliheeren/IdealPlayer/build/native-remediation-2026-10-03/x86-source-package/libvlcjni/vlc",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "patch",
+        "-p1",
+        "--fuzz=0",
+        "--batch",
+        "-i",
+        "/home/meliheeren/IdealPlayer/build/native-remediation-2026-10-28/images/aom-CVE-2024-5171.patch"
+      ],
+      "cwd": "/home/meliheeren/IdealPlayer/build/native-remediation-2026-10-03/x86-source-package/libvlcjni/vlc/contrib/contrib-android-i686-linux-android/aom",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "make",
+        "-j4"
+      ],
+      "cwd": "/home/meliheeren/IdealPlayer/build/native-remediation-2026-10-03/x86-source-package/libvlcjni/vlc/contrib/contrib-android-i686-linux-android/aom/vlc_build",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "make",
+        "install"
+      ],
+      "cwd": "/home/meliheeren/IdealPlayer/build/native-remediation-2026-10-03/x86-source-package/libvlcjni/vlc/contrib/contrib-android-i686-linux-android/aom/vlc_build",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "make",
+        "-j4",
+        ".png",
+        ".libxml2"
+      ],
+      "cwd": "/home/meliheeren/IdealPlayer/build/native-remediation-2026-10-03/x86-source-package/libvlcjni/vlc/contrib/contrib-android-i686-linux-android",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sh",
+        "/home/meliheeren/IdealPlayer/build/native-remediation-2026-10-03/x86-source-package/libvlcjni/buildsystem/compile-libvlc.sh",
+        "-a",
+        "x86",
+        "--license",
+        "g"
+      ],
+      "cwd": "/home/meliheeren/IdealPlayer",
+      "exit_code": 0
+    }
+  ],
+  "prior_static_archives": {
+    "libz.a": "9ac4d408044ebc61e52fc0956bcc924cb3882ce5f79dfda29e262123092fda2f",
+    "libfribidi.a": "e1ecda042c1a4a3e7923dc79f2e9af3be07f826078b128e4297e7a7dd8db694b",
+    "libcharset.a": "1e2b5a54a6bd5743986f1b2e091810ce5939f0f1967dc02d73dd81ec30799c09",
+    "libiconv.a": "49efff3ea22a3ad5b6ae45135fadcb6b2aa42ce809e254046bb3bd6068e49cf0",
+    "libaom.a": "02b3cea01707ec39d889c79c17cc3f2c9a41caf8d4cf950d9f96922914a159be",
+    "libxml2.a": "4aea434a9fa68d4882ccc62a3f8e8138be2cf4b32fa014dc91c656c9056c1f22",
+    "libcddb.a": "949d0ac6e68b8b77a79a3527de0939dbf8b330bb6477aed25bb4aa0ae5caa46b",
+    "libdav1d.a": "b174efab9c577850ba07be8de1fc7c23e64b3beb7ee9e3524430e736b15ee8cd",
+    "libdvbpsi.a": "ca34eb1beff5c3d001973fb643377a962f375a5dd6e99c867c269e88b23320b2",
+    "libdvdcss.a": "59c7adedcc0a5fdb50f730c64810491ba0f8b8734ed136478e978ced1b261d5f",
+    "libgsm.a": "2cf78b85d136dcf853bd3bff96236c67e479db81df7adeb55e92e8336f5ba73e",
+    "libebml.a": "de8abd94703dc8979ebc67c2eef79ec9d0408efbb9205e108b3f59fb49783fed",
+    "libopenjp2.a": "ceb7a61f53e85191c45292a52ce7e221aba78ffdb2bc6c03da4aba834279297a",
+    "libogg.a": "f15f1d94cd6f077a90dcd11ab063da7e27b6b3eab2798797c514de7c817bbd80",
+    "libmp3lame.a": "38b263534122a9f323790fdd4675fa83b8fe72dba154c3af6933aceaee77a205",
+    "libgpg-error.a": "9897ecd91e4964c919315eba0f41980c49309cc16a76fe9839fa652f4801f261",
+    "libjpeg.a": "9993eda999dae864d1f9e570d5b361a01afa22b6bbe75c739a8179ea451d8895",
+    "libtasn1.a": "46d06827ef84e83ee4d92668146b3aa02e979557a9ed58c9fd14b63b9c2c7384",
+    "libplacebo.a": "5a0283f0ed1a1b09503ed22c53fcd1c692e2f0ff2282b7015ad98cebccfa8c3b",
+    "libgroupsock.a": "c0ee291df7a31a8151cd31f055097210d6d2c1bbf7264b92e1fc20a652b3d4f4",
+    "libliveMedia.a": "e43653f839bf911160837a013bec6a7dc089c0edcd5ec5bb332a9acae87398ee",
+    "libUsageEnvironment.a": "8df060bbb861f04fd26bae7b4ab64c49ea746359301119a43541fc787b70ded6",
+    "libBasicUsageEnvironment.a": "62e5a492886fdc017fdfc1431239d7628f22df9220ff6c96946ab816771ebb80",
+    "liblua.a": "2a08f6b10de5ee27d0491030b73076f5b9e95c2efa303887f0a5501721609140",
+    "libmicrodns.a": "bdef6d463b9a49fce5f572cf4de2ab1b4cdab701ecb4b2b3f8b3273d65c9665a",
+    "libmodplug.a": "e1d204f1dce1831d9b7fc4930661173a96432a304c8f48ec5dd6886498376ea5",
+    "libmpg123.a": "9d062b18eee1b3cf16cc8788436c20dbd5452086a65bd552a9a6ea347963ea45",
+    "libout123.a": "215de0d811ddc542b3761bf60f589da12f2bd4c9d89c6a54e465f51b978610a2",
+    "libsyn123.a": "54cb53f76ec0346db168c0e56d5a472c0f618da4b2bb1a2566ba407a447bef66",
+    "liboapv.a": "3f1e718069a7a7d3d4ce2cd7033eeed45b6f49656d7ee48bcd087e1ce8c4a7ee",
+    "libspeex.a": "33d00d6220ffdf11f046f2bf0958d9f8c72b9593a8e8a67364e456b6df3b79a5",
+    "libopus.a": "86090fce52eaeec4d17c0d65a6f28b3649d0aad6f5bdc5571ce62e3c213ed967",
+    "libspeexdsp.a": "77bd54b378dbef7c24bc5edfd9011dc0c576a6ec22810ae016ebb183994064d8",
+    "libtwolame.a": "e14a96ad317a013448bc6250888bd3d65679ffebe419b19020dcf0b008bf3d99",
+    "libixml.a": "7057f92b213138575bd597292ea84e40793906f91d9f9aba59d4f3e4ae007ba4",
+    "libupnp.a": "601fd86d373ce85504ea113b97118e86e8ce3335d6949e52e3742ee773456b66",
+    "libtag.a": "380c3d5a78db08ebc77432d48d07a6e68e28bb75f3c8062969af6fc7ff8b68a7",
+    "libx264.a": "3b58c9c8832e545b89f1bcd8b846db325d5f9d2ee2bba6e93034d27290ff7b00",
+    "libvpx.a": "ac18a1ab07cac4f9f1b9b2b281f7026c2d754b6726c0cddd2970120a339ee611",
+    "libgme.a": "379ea251f45aa7b3e545093be24f499bd57212dea6cd6f8f774ffc1cf40217f5",
+    "libintl.a": "09212ed774590a28187488e6578dbe5a063a467e14c7605541193212e946dcc8",
+    "libarchive.a": "5ce9fe5f21b8213a6f9adc7f3f63ce86d3e58ca7b2ed9507772aae0368539602",
+    "libmysofa.a": "ca1e6654840e1a10bddc117a6b000e10fddd3e4beb78db3f5849aa8965d25064",
+    "libmatroska.a": "e28fd69f2dec86df0d380f5fa88d55b540034b2b023aacefb2b18a46d730655c",
+    "libpng16.a": "329f86bd9b78bc72a71b0af1afa334e09ac37b9f2555e99da69186b94f1d5664",
+    "libpng.a": "329f86bd9b78bc72a71b0af1afa334e09ac37b9f2555e99da69186b94f1d5664",
+    "libtheoradec.a": "6abfdf8a54530e7f10bced7f8a21e4f07b16adb6f75e507003e3a071b206b77b",
+    "libtheoraenc.a": "a194d79acdcd1fc3b359726ee7df506a8f400b5c62a1405b4a22c39b6d5e5372",
+    "libtheora.a": "157bfb479b0e3a0ddb7c9a9260942ab3befb7680e6717640b8eb528404fe2527",
+    "libfreetype.a": "cc6bb1268b28e6655679e3097066cd64a7205e2cc3bbd40e94366cc86dec34b1",
+    "libdvdread.a": "5b5d7087e0958ffb0d4c46db9753c7a08c146a5be44907e62257ed7526cdab23",
+    "libprotobuf-lite.a": "d4375904426ef2d849b116948e1a29dd392c9458246c3a6c185b0fe6af6d569e",
+    "libprotobuf.a": "9785b85dcedf218aa73d92e5ecf50d3ef84105d9665a5a13ed6f8de077bf5994",
+    "libFLAC.a": "ec402c44d0782516127979372b0b83c908e85d54849a70bfd87eed7e0305cec5",
+    "libvorbis.a": "16828b878cca9c4edc1833305890bf794c9cfddebe87104836d97b95096c098c",
+    "libvorbisenc.a": "1e6b088ea196f691e0c2027b06215f808b3e94c6ddcbcd7386949e90c2fbe7ee",
+    "libvorbisfile.a": "aa8e95c7345f85eaf34f4f9703e545b4fd25d5c2f5a98b54334509000b6b4978",
+    "libdsm.a": "3ead505b0b370ef7c8e3cd013c270480b063f978ece1ac5c4a5d9a863d00394d",
+    "libspatialaudio.a": "1013d7836b3e6ab6d9f2e3d7c52cb89a9757a7b634fc86953516b81d37e81dd0",
+    "libzvbi.a": "c2a2adeb6184750d3bb94123e08527f7b43150582c18f1ed56f7e57f2bb9563f",
+    "libshout.a": "f7d2ac96acd5d9a55a78c3b4ac7d8c7da94f61c4ebc2738f6646ea5470c7db38",
+    "libharfbuzz.a": "cb37f858b5b61a8dcd7ec9c04bf3e8c4a7965f957387d74ae415a3f2b3f8c73c",
+    "libharfbuzz-subset.a": "41c8b66ce19b061a19b9a43df3532dc280c11cbcf7abb96cf77292d6c56fb8e8",
+    "libbluray.a": "0fbc67bd9ef97c590472c97e14891171337bc8e099b6b5b8a105d30bf0e0068c",
+    "libdvdnav.a": "0d3c8380eb35fcb86ab0cc3431170f13167638cf74dd4213812ca83fc9dee5b4",
+    "libfluidlite.a": "4bd41997f0028e01b7cbc0e98ef0fbb04114d167116473e022491d5b9f0b2982",
+    "libass.a": "f0d7c9dfd315df3a658ff6b36db00672cdd3bc9e2c5f792690a542224307ba81",
+    "libavformat.a": "03eb6609a87a441f91ac5eb096af12ef31e63cbb3086c935be31da1bd99abea0",
+    "libswscale.a": "c0e5be2340d61fcc32e073eb0ee59ed70d3289144a0744480bb83551afeace73",
+    "libavutil.a": "0486e68f7cb4cc1f9ffcc7125fd3b4d34115db0512b886e89958e8a0fd2dc9ea",
+    "libavcodec.a": "b5e9786d9be8868f7bb45d5f4feb9c94ff5a8823f32127b60edf667a2719a073",
+    "libsoxr.a": "118cb1744fb9aec333883fa2cdda86afa14a5f0358de62103343cf4e22db06f1",
+    "libpostproc.a": "a4599065068e50d06795bdea79d11d8e6961cc614ad5feaa154964c8de1bb466",
+    "libgcrypt.a": "4f472b60127b3a952c9e53fb8bf379a95a771634aa70c7bc9c2e97cb4c5926b7",
+    "libssh2.a": "161544741bfaf90f509486ca452dc537785ca2388876a8d15b3013ef573cdbe9",
+    "libgmp.a": "f22187da8c88baffb75943fef768f69f552a66c663c8cf75ed97eca924da580f",
+    "libnettle.a": "7a83528ef36586df4196fe7bbee2890a20dfa08e97e8e95bb4e9415e460f9c0a",
+    "libhogweed.a": "1c5b6aa5a23480ddb14f39c42b79bbef629871cc544052b3ead37250ffc15a67",
+    "libgnutls.a": "69c31be6e5ec6f15c8c9fefef1c52b663a7cf0171acc9da498be08e4be3f707d",
+    "libnfs.a": "70d930570bc29fbab645e7f6d0cda85f32ebe1035cd39a1c4f1af62ff2266097",
+    "libsmb2.a": "74d735e3f45044312b9ee6c8980bae775355de38a207947cba35c8252722c318"
+  },
+  "changed_static_archives": {
+    "libz.a": {
+      "before": "9ac4d408044ebc61e52fc0956bcc924cb3882ce5f79dfda29e262123092fda2f",
+      "after": "c89d6d65203f07518f2a45086ce9b12e87bd342e2cf581b5143f3a5831bfef1d"
+    },
+    "libaom.a": {
+      "before": "02b3cea01707ec39d889c79c17cc3f2c9a41caf8d4cf950d9f96922914a159be",
+      "after": "01f329ce83c0ae39c19402c3b189dd4c8a4062eeddf6875e5dadbcb968076b12"
+    },
+    "libxml2.a": {
+      "before": "4aea434a9fa68d4882ccc62a3f8e8138be2cf4b32fa014dc91c656c9056c1f22",
+      "after": "c08435cc22cd0f4adb9bf0fe2480d7f2c06647bc396b834349b4f57cc782ce7a"
+    },
+    "libgme.a": {
+      "before": "379ea251f45aa7b3e545093be24f499bd57212dea6cd6f8f774ffc1cf40217f5",
+      "after": "d887a6f84169c47d672b4207b7c0e66859bfd60b2a817662cab0ca7faf426965"
+    },
+    "libintl.a": {
+      "before": "09212ed774590a28187488e6578dbe5a063a467e14c7605541193212e946dcc8",
+      "after": "d4fcf29c9c2688755bc7143360c43c4b5ad9f6535ec57a68bf2281fedf9e9161"
+    },
+    "libarchive.a": {
+      "before": "5ce9fe5f21b8213a6f9adc7f3f63ce86d3e58ca7b2ed9507772aae0368539602",
+      "after": "5746424b6c8579dde1a62f8eed3fa4a1195527cb8540bc71a81b40d1aed591fb"
+    },
+    "libpng16.a": {
+      "before": "329f86bd9b78bc72a71b0af1afa334e09ac37b9f2555e99da69186b94f1d5664",
+      "after": "8c97e15de3df35651d76d11174813a7a7de2737ec9ba70c5f8bcbbc2159e94d2"
+    },
+    "libpng.a": {
+      "before": "329f86bd9b78bc72a71b0af1afa334e09ac37b9f2555e99da69186b94f1d5664",
+      "after": "8c97e15de3df35651d76d11174813a7a7de2737ec9ba70c5f8bcbbc2159e94d2"
+    },
+    "libprotobuf.a": {
+      "before": "9785b85dcedf218aa73d92e5ecf50d3ef84105d9665a5a13ed6f8de077bf5994",
+      "after": "10043eace574f180d2c6f8043402fd5199de5517751e2babf5de91c316c7924e"
+    },
+    "libzvbi.a": {
+      "before": "c2a2adeb6184750d3bb94123e08527f7b43150582c18f1ed56f7e57f2bb9563f",
+      "after": "4867e4f17f5fafb4f802519aa6a8899c10e0f63af9ae4f39d2f302b21cbd86e9"
+    },
+    "libbluray.a": {
+      "before": "0fbc67bd9ef97c590472c97e14891171337bc8e099b6b5b8a105d30bf0e0068c",
+      "after": "119af14a7dfba1191b20c9a0d2a0d300637a1802fe9597b44ffe27f66d2d8d3a"
+    },
+    "libass.a": {
+      "before": "f0d7c9dfd315df3a658ff6b36db00672cdd3bc9e2c5f792690a542224307ba81",
+      "after": "c3b8bf38c6088f31d9601f9234c5af6c3512974d7a070f7d8aa74da418577616"
+    },
+    "libsoxr.a": {
+      "before": "118cb1744fb9aec333883fa2cdda86afa14a5f0358de62103343cf4e22db06f1",
+      "after": "55f0525202e33d3035f454caeb8afe930725211d41df6afe722b302b05be3287"
+    }
+  },
+  "preserved_static_archives": {
+    "libfribidi.a": "e1ecda042c1a4a3e7923dc79f2e9af3be07f826078b128e4297e7a7dd8db694b",
+    "libcharset.a": "1e2b5a54a6bd5743986f1b2e091810ce5939f0f1967dc02d73dd81ec30799c09",
+    "libiconv.a": "49efff3ea22a3ad5b6ae45135fadcb6b2aa42ce809e254046bb3bd6068e49cf0",
+    "libcddb.a": "949d0ac6e68b8b77a79a3527de0939dbf8b330bb6477aed25bb4aa0ae5caa46b",
+    "libdav1d.a": "b174efab9c577850ba07be8de1fc7c23e64b3beb7ee9e3524430e736b15ee8cd",
+    "libdvbpsi.a": "ca34eb1beff5c3d001973fb643377a962f375a5dd6e99c867c269e88b23320b2",
+    "libdvdcss.a": "59c7adedcc0a5fdb50f730c64810491ba0f8b8734ed136478e978ced1b261d5f",
+    "libgsm.a": "2cf78b85d136dcf853bd3bff96236c67e479db81df7adeb55e92e8336f5ba73e",
+    "libebml.a": "de8abd94703dc8979ebc67c2eef79ec9d0408efbb9205e108b3f59fb49783fed",
+    "libopenjp2.a": "ceb7a61f53e85191c45292a52ce7e221aba78ffdb2bc6c03da4aba834279297a",
+    "libogg.a": "f15f1d94cd6f077a90dcd11ab063da7e27b6b3eab2798797c514de7c817bbd80",
+    "libmp3lame.a": "38b263534122a9f323790fdd4675fa83b8fe72dba154c3af6933aceaee77a205",
+    "libgpg-error.a": "9897ecd91e4964c919315eba0f41980c49309cc16a76fe9839fa652f4801f261",
+    "libjpeg.a": "9993eda999dae864d1f9e570d5b361a01afa22b6bbe75c739a8179ea451d8895",
+    "libtasn1.a": "46d06827ef84e83ee4d92668146b3aa02e979557a9ed58c9fd14b63b9c2c7384",
+    "libplacebo.a": "5a0283f0ed1a1b09503ed22c53fcd1c692e2f0ff2282b7015ad98cebccfa8c3b",
+    "libgroupsock.a": "c0ee291df7a31a8151cd31f055097210d6d2c1bbf7264b92e1fc20a652b3d4f4",
+    "libliveMedia.a": "e43653f839bf911160837a013bec6a7dc089c0edcd5ec5bb332a9acae87398ee",
+    "libUsageEnvironment.a": "8df060bbb861f04fd26bae7b4ab64c49ea746359301119a43541fc787b70ded6",
+    "libBasicUsageEnvironment.a": "62e5a492886fdc017fdfc1431239d7628f22df9220ff6c96946ab816771ebb80",
+    "liblua.a": "2a08f6b10de5ee27d0491030b73076f5b9e95c2efa303887f0a5501721609140",
+    "libmicrodns.a": "bdef6d463b9a49fce5f572cf4de2ab1b4cdab701ecb4b2b3f8b3273d65c9665a",
+    "libmodplug.a": "e1d204f1dce1831d9b7fc4930661173a96432a304c8f48ec5dd6886498376ea5",
+    "libmpg123.a": "9d062b18eee1b3cf16cc8788436c20dbd5452086a65bd552a9a6ea347963ea45",
+    "libout123.a": "215de0d811ddc542b3761bf60f589da12f2bd4c9d89c6a54e465f51b978610a2",
+    "libsyn123.a": "54cb53f76ec0346db168c0e56d5a472c0f618da4b2bb1a2566ba407a447bef66",
+    "liboapv.a": "3f1e718069a7a7d3d4ce2cd7033eeed45b6f49656d7ee48bcd087e1ce8c4a7ee",
+    "libspeex.a": "33d00d6220ffdf11f046f2bf0958d9f8c72b9593a8e8a67364e456b6df3b79a5",
+    "libopus.a": "86090fce52eaeec4d17c0d65a6f28b3649d0aad6f5bdc5571ce62e3c213ed967",
+    "libspeexdsp.a": "77bd54b378dbef7c24bc5edfd9011dc0c576a6ec22810ae016ebb183994064d8",
+    "libtwolame.a": "e14a96ad317a013448bc6250888bd3d65679ffebe419b19020dcf0b008bf3d99",
+    "libixml.a": "7057f92b213138575bd597292ea84e40793906f91d9f9aba59d4f3e4ae007ba4",
+    "libupnp.a": "601fd86d373ce85504ea113b97118e86e8ce3335d6949e52e3742ee773456b66",
+    "libtag.a": "380c3d5a78db08ebc77432d48d07a6e68e28bb75f3c8062969af6fc7ff8b68a7",
+    "libx264.a": "3b58c9c8832e545b89f1bcd8b846db325d5f9d2ee2bba6e93034d27290ff7b00",
+    "libvpx.a": "ac18a1ab07cac4f9f1b9b2b281f7026c2d754b6726c0cddd2970120a339ee611",
+    "libmysofa.a": "ca1e6654840e1a10bddc117a6b000e10fddd3e4beb78db3f5849aa8965d25064",
+    "libmatroska.a": "e28fd69f2dec86df0d380f5fa88d55b540034b2b023aacefb2b18a46d730655c",
+    "libtheoradec.a": "6abfdf8a54530e7f10bced7f8a21e4f07b16adb6f75e507003e3a071b206b77b",
+    "libtheoraenc.a": "a194d79acdcd1fc3b359726ee7df506a8f400b5c62a1405b4a22c39b6d5e5372",
+    "libtheora.a": "157bfb479b0e3a0ddb7c9a9260942ab3befb7680e6717640b8eb528404fe2527",
+    "libfreetype.a": "cc6bb1268b28e6655679e3097066cd64a7205e2cc3bbd40e94366cc86dec34b1",
+    "libdvdread.a": "5b5d7087e0958ffb0d4c46db9753c7a08c146a5be44907e62257ed7526cdab23",
+    "libprotobuf-lite.a": "d4375904426ef2d849b116948e1a29dd392c9458246c3a6c185b0fe6af6d569e",
+    "libFLAC.a": "ec402c44d0782516127979372b0b83c908e85d54849a70bfd87eed7e0305cec5",
+    "libvorbis.a": "16828b878cca9c4edc1833305890bf794c9cfddebe87104836d97b95096c098c",
+    "libvorbisenc.a": "1e6b088ea196f691e0c2027b06215f808b3e94c6ddcbcd7386949e90c2fbe7ee",
+    "libvorbisfile.a": "aa8e95c7345f85eaf34f4f9703e545b4fd25d5c2f5a98b54334509000b6b4978",
+    "libdsm.a": "3ead505b0b370ef7c8e3cd013c270480b063f978ece1ac5c4a5d9a863d00394d",
+    "libspatialaudio.a": "1013d7836b3e6ab6d9f2e3d7c52cb89a9757a7b634fc86953516b81d37e81dd0",
+    "libshout.a": "f7d2ac96acd5d9a55a78c3b4ac7d8c7da94f61c4ebc2738f6646ea5470c7db38",
+    "libharfbuzz.a": "cb37f858b5b61a8dcd7ec9c04bf3e8c4a7965f957387d74ae415a3f2b3f8c73c",
+    "libharfbuzz-subset.a": "41c8b66ce19b061a19b9a43df3532dc280c11cbcf7abb96cf77292d6c56fb8e8",
+    "libdvdnav.a": "0d3c8380eb35fcb86ab0cc3431170f13167638cf74dd4213812ca83fc9dee5b4",
+    "libfluidlite.a": "4bd41997f0028e01b7cbc0e98ef0fbb04114d167116473e022491d5b9f0b2982",
+    "libavformat.a": "03eb6609a87a441f91ac5eb096af12ef31e63cbb3086c935be31da1bd99abea0",
+    "libswscale.a": "c0e5be2340d61fcc32e073eb0ee59ed70d3289144a0744480bb83551afeace73",
+    "libavutil.a": "0486e68f7cb4cc1f9ffcc7125fd3b4d34115db0512b886e89958e8a0fd2dc9ea",
+    "libavcodec.a": "b5e9786d9be8868f7bb45d5f4feb9c94ff5a8823f32127b60edf667a2719a073",
+    "libpostproc.a": "a4599065068e50d06795bdea79d11d8e6961cc614ad5feaa154964c8de1bb466",
+    "libgcrypt.a": "4f472b60127b3a952c9e53fb8bf379a95a771634aa70c7bc9c2e97cb4c5926b7",
+    "libssh2.a": "161544741bfaf90f509486ca452dc537785ca2388876a8d15b3013ef573cdbe9",
+    "libgmp.a": "f22187da8c88baffb75943fef768f69f552a66c663c8cf75ed97eca924da580f",
+    "libnettle.a": "7a83528ef36586df4196fe7bbee2890a20dfa08e97e8e95bb4e9415e460f9c0a",
+    "libhogweed.a": "1c5b6aa5a23480ddb14f39c42b79bbef629871cc544052b3ead37250ffc15a67",
+    "libgnutls.a": "69c31be6e5ec6f15c8c9fefef1c52b663a7cf0171acc9da498be08e4be3f707d",
+    "libnfs.a": "70d930570bc29fbab645e7f6d0cda85f32ebe1035cd39a1c4f1af62ff2266097",
+    "libsmb2.a": "74d735e3f45044312b9ee6c8980bae775355de38a207947cba35c8252722c318"
+  },
+  "libraries": [
+    {
+      "file": "native/x86/libvlc.so",
+      "sha256": "7ed7c5ea244a9a4cbea922309b1a22736bb83fbc713efc6df48256eed23816d2",
+      "bytes": 49133428
+    },
+    {
+      "file": "native/x86/libvlcjni.so",
+      "sha256": "f19e8e87b6cd8a0cc5bef96f4879ce6784e3806394c23852868a0b6ac2fb00c9",
+      "bytes": 116200
+    },
+    {
+      "file": "native/x86/libc++_shared.so",
+      "sha256": "3051dd001301b81024779099e11f657f10e983d02aa1b16f18e711ec33685314",
+      "bytes": 931652
+    }
+  ],
+  "finished_at": "2026-10-28T12:41:25.165983+00:00"
+}

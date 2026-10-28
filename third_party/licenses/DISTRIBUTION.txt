@@ -1,0 +1,26 @@
+IdealPlayer 1.2.9 (versionCode 43)
+
+IdealPlayer's original application source retains its MIT license. The distributed
+application also incorporates GPL/LGPL and permissively licensed components. The
+combined full-feature build is distributed under GNU GPL version 3; individual
+components retain their own copyright notices and license options. This statement
+does not relicense upstream code or remove rights granted by the MIT license.
+
+Copyright/license texts and artifact identities are in component-notices/index.json
+and native-notices/index.json. Both indexes reference the original text files by
+SHA-256. The native inventory conservatively retains some build-only notices too.
+The upstream LibVLC Maven LGPL declaration does not describe every statically
+linked component in this full GPL-enabled VLC build. Jellyfin FFmpeg is retained.
+
+Corresponding source distribution location:
+https://github.com/meliherenn/IdealPlayer/releases
+Select the source archive for versionCode 43 / 1.2.9 and its checksum manifest.
+The archive includes application sources, native upstream archives, all local
+patches, component/build configurations and build/install instructions. Signing
+keys, personal account data and local configuration are not distributed. Use your
+own signing key to build/install a modified copy. No signature-based restriction
+has been added to the application's playback or other functionality.
+
+The source archive must be publicly available before this binary is distributed,
+and remain available while this binary is distributed. A local staging archive
+alone does not fulfill this condition. No warranty is provided; see license texts.

@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "coordinate": "org.videolan.android:libvlc-all:3.7.2-idealplayer-remediation.6",
+  "aar_sha256": "39e9a2f68ed672c551238229b916715303d8c620301946ecb38ec473729db192",
+  "device": {
+    "model": "MiTV-AYFR0",
+    "abi": "armeabi-v7a",
+    "sdk": "34"
+  },
+  "scope": "Exact bundled GnuTLS via the certificate_verify_peers3 API used by VLC; synthetic HTTPS, temporary explicit CA. Not end-to-end playback or a system trust-store modification.",
+  "library_sha256": "dfef41db7835795e0218748ea0593ec7558105c51c77a42c05a95964e9cad628",
+  "cases": [
+    {
+      "id": "wrong-host",
+      "hostname": "fixture.idealplayer.invalid",
+      "expected": "reject",
+      "exit_code": 0,
+      "output": "PASS GnuTLS=3.8.13 protocol=TLS1.3 handshake=0 certificate_status=16386 expected=reject",
+      "stderr": "",
+      "server_diagnostics": []
+    },
+    {
+      "id": "expired",
+      "hostname": "fixture.idealplayer.invalid",
+      "expected": "reject",
+      "exit_code": 0,
+      "output": "PASS GnuTLS=3.8.13 protocol=TLS1.3 handshake=0 certificate_status=1026 expected=reject",
+      "stderr": "",
+      "server_diagnostics": []
+    },
+    {
+      "id": "untrusted",
+      "hostname": "fixture.idealplayer.invalid",
+      "expected": "reject",
+      "exit_code": 0,
+      "output": "PASS GnuTLS=3.8.13 protocol=TLS1.3 handshake=0 certificate_status=2050 expected=reject",
+      "stderr": "",
+      "server_diagnostics": []
+    },
+    {
+      "id": "uri-san-matching-cn",
+      "hostname": "fixture.idealplayer.invalid",
+      "expected": "reject",
+      "exit_code": 0,
+      "output": "PASS GnuTLS=3.8.13 protocol=TLS1.3 handshake=0 certificate_status=16386 expected=reject",
+      "stderr": "",
+      "server_diagnostics": []
+    },
+    {
+      "id": "oversized-san-matching-cn",
+      "hostname": "fixture.idealplayer.invalid",
+      "expected": "reject",
+      "exit_code": 0,
+      "output": "PASS GnuTLS=3.8.13 protocol=TLS1.3 handshake=0 certificate_status=16386 expected=reject",
+      "stderr": "",
+      "server_diagnostics": []
+    },
+    {
+      "id": "valid",
+      "hostname": "fixture.idealplayer.invalid",
+      "expected": "accept",
+      "exit_code": 0,
+      "output": "PASS GnuTLS=3.8.13 protocol=TLS1.3 handshake=0 certificate_status=0 expected=accept",
+      "stderr": "",
+      "server_diagnostics": []
+    }
+  ],
+  "harness_correction": "Initial positive case completed TLS and certificate verification, but the diagnostic read did not retry TLS 1.3 post-handshake GNUTLS_E_AGAIN. Corrected diagnostic read and repeated only that failed positive case; library bytes unchanged. Five successful negative cases were not repeated.",
+  "previous_suites": "523 JVM, 18 menu/focus, soak and codec/caption matrix not repeated",
+  "cleanup": "Temporary native files and adb reverse mapping removed; application data and system trust unchanged"
+}

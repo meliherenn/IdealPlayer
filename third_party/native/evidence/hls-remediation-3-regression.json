@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "scope": "ARM64 direct FFmpeg HLS rejection probes; no external network/file reads; not whole app playback acceptance",
+  "device": "Xiaomi 13 Ultra, ishtar, API 36",
+  "aar_sha256": "6c23a6bb5171d2d1768ee4a138997c73900cb36adfd36f5a92b466edbd33f32a",
+  "results": [
+    "recursive-child-master-rejected: PASS (result=-1094995529 child_opens=1)",
+    "child-extension-checked-before-io: PASS (result=-1094995529 child_opens=0)",
+    "child-protocol-checked-before-io: PASS (result=-1094995529 child_opens=0)"
+  ],
+  "files": [
+    {
+      "path": "scripts/native_hls_regression.c",
+      "sha256": "d81e1c6b577d3cdb79475b8adcd4b571288d1377b56450091992be743d4bcc0a"
+    },
+    {
+      "path": "build/native-remediation-2026-10-11/native_hls_regression",
+      "sha256": "cfc1e64829ff895b3c74343fbc9aa9d55c196b8bcc442078962280af3bb93063"
+    },
+    {
+      "path": "build/native-remediation-2026-10-11/hls-device-result.txt",
+      "sha256": "7e4b4285fd4f0bd8c8b748003037f16e4c6ece2073fcade862af5e4e08d2957a"
+    },
+    {
+      "path": "build/native-remediation-2026-10-11/fresh-patched-source-match.json",
+      "sha256": "04e3c541caf32e85fea5c9bff30ce557e13c8be852137debf159b87ba3712cbc"
+    },
+    {
+      "path": "build/native-remediation-2026-10-03/libvlcjni-f6d8607210adba08f504e4b065f18620ba652de6/vlc/contrib/aarch64-linux-android/lib/libavformat.a",
+      "sha256": "7e6dcbe3cf350dd82fa16f72f7a9e09d72958c5c3e6ba0a76efe88e7286c65ad"
+    },
+    {
+      "path": "build/native-remediation-2026-10-03/libvlcjni-f6d8607210adba08f504e4b065f18620ba652de6/vlc/contrib/aarch64-linux-android/lib/libavcodec.a",
+      "sha256": "91d51b3b762d0455dc5d2036085fa3aa9b43dda3608dd68a4922b05f32153304"
+    },
+    {
+      "path": "build/native-remediation-2026-10-03/libvlcjni-f6d8607210adba08f504e4b065f18620ba652de6/vlc/contrib/aarch64-linux-android/lib/libavutil.a",
+      "sha256": "d1536b34d912c9e0b8cdad0abea92353b91e9a64a4b3d5be4bbc5270e2c64c9d"
+    }
+  ],
+  "configuration": [
+    {
+      "abi": "arm64-v8a",
+      "unchanged_config_sha256": "b8c39b4188085f5861bbcf384c161c2fbfebc0a6bd10683fc611e7444276f343",
+      "component_config_sha256": "09e5476584361fe734b5a715e8b102d4ee629f57e3118994df916c9288b6b709",
+      "hls_enabled": true,
+      "mbedtls_enabled": false
+    },
+    {
+      "abi": "armeabi-v7a",
+      "unchanged_config_sha256": "50161ee7119209193615a5702da9c3d44ace8cc8a33d8a074b8914c070d1b562",
+      "component_config_sha256": "09e5476584361fe734b5a715e8b102d4ee629f57e3118994df916c9288b6b709",
+      "hls_enabled": true,
+      "mbedtls_enabled": false
+    },
+    {
+      "abi": "x86_64",
+      "unchanged_config_sha256": "5bb739c13e02bf414f6b0dfa1b62901b39a61f49e3b55236c6f25e4de2bdcde9",
+      "component_config_sha256": "09e5476584361fe734b5a715e8b102d4ee629f57e3118994df916c9288b6b709",
+      "hls_enabled": true,
+      "mbedtls_enabled": false
+    },
+    {
+      "abi": "x86",
+      "unchanged_config_sha256": "7862a03757d49df0e247e75f5776ef2ac7a36744694509c078271a20f80d1b15",
+      "component_config_sha256": "09e5476584361fe734b5a715e8b102d4ee629f57e3118994df916c9288b6b709",
+      "hls_enabled": true,
+      "mbedtls_enabled": false
+    }
+  ]
+}

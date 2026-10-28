@@ -1,0 +1,30 @@
+{
+  "status": "BUILT_JAVA_API_AND_NATIVE_BYTES_VERIFIED_RUNTIME_PENDING",
+  "coordinate": "org.videolan.android:libvlc-all:3.7.2-idealplayer-remediation.4",
+  "aar_sha256": "e94e2fc02d754012d3e3c3f0e5d7aec29a3ee39560baf23002763547d6355334",
+  "pom_sha256": "fcea589832bf7534e5b530c3a52ae9360229da3e521c89f4ec49380b966f88ee",
+  "previous_aar_sha256": "6c23a6bb5171d2d1768ee4a138997c73900cb36adfd36f5a92b466edbd33f32a",
+  "unchanged_native_entries": 12,
+  "native_entries": {
+    "jni/arm64-v8a/libc++_shared.so": "ab4e6c71b96b851de45a8a9bd86369e7dbc2130a44b3b4520564be94847910f2",
+    "jni/arm64-v8a/libvlc.so": "36d9b64c529fbc94adb47cdfb848d89bc95425b3f10a55db2e987913bba1f57e",
+    "jni/arm64-v8a/libvlcjni.so": "b0ebde2b65bcc3011f52fae299f7cc716c58d486c949b8e37648c70af9f09024",
+    "jni/armeabi-v7a/libc++_shared.so": "092a44574c247982e265743acb1227e11a2f079a765814fef1b627dbfb2b79d5",
+    "jni/armeabi-v7a/libvlc.so": "44b606fb99391af1db84c19ed470d669f46f36b49f6856881d7a97721f9ab533",
+    "jni/armeabi-v7a/libvlcjni.so": "7d00d5dacf6253d119a78f7738ea9afc37e80f7b4b2f1969dd646e14fb369754",
+    "jni/x86/libc++_shared.so": "3051dd001301b81024779099e11f657f10e983d02aa1b16f18e711ec33685314",
+    "jni/x86/libvlc.so": "d9917f3fd93c8d35830f9ce5d28f426f270727e9989007bc22f40a59d0f928b9",
+    "jni/x86/libvlcjni.so": "f19e8e87b6cd8a0cc5bef96f4879ce6784e3806394c23852868a0b6ac2fb00c9",
+    "jni/x86_64/libc++_shared.so": "e4cd73c8a3607269f3be58d15c21f78bff112e27f9398d6261e5f965668f8746",
+    "jni/x86_64/libvlc.so": "8e983911cb2e36302da777cb53250aff12009d0196f81013ef479c95629493e4",
+    "jni/x86_64/libvlcjni.so": "ed25ad4feba5a5c5892bb1736df21070cbbb6c9787612e41b46c63b510ca4f08"
+  },
+  "changed_java_classes": [
+    "org/videolan/libvlc/Media.class"
+  ],
+  "unchanged_java_classes": 139,
+  "public_signatures_unchanged": true,
+  "source_lock_sha256": "77a18c41f6e7b065597dda138fea80e803b9186f7eb006eb35839cd051b3b9a1",
+  "patch_sha256": "fb52acdc3901c379e367b481bd4e13c022cb43120e6be5eb7e662606f0f6f3d7",
+  "scope": "Java-only live track snapshot refresh; all native bytes unchanged from remediation.3. Not overall security/license clearance."
+}

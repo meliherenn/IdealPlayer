@@ -1,0 +1,2041 @@
+{
+  "schema_version": 1,
+  "excluded_components": [],
+  "context": "Selected remediation.8; scoped security and license engineering review complete with exact artifact/evidence identities. Source hosting and final Play submission are separate mandatory gates. Earlier component entries are historical, not selected.",
+  "components": [
+    {
+      "coordinate": "androidx.datastore:datastore-core-android:1.2.1",
+      "aar_sha256": "435edad7bcb1fbb1a2a46de7be4d6daf299479b3328ebf757ebdfe02810cbdd8",
+      "security": {
+        "status": "REVIEWED",
+        "evidence": [
+          {
+            "path": "docs/NATIVE_LICENSE_REVIEW_2026-10-28.md",
+            "sha256": "a9acdb39768be95a89615e7cfaae68c5078acfbc5950d54005a8269079b95ffa"
+          }
+        ]
+      },
+      "licenses": {
+        "status": "REVIEWED",
+        "evidence": [
+          {
+            "path": "docs/NATIVE_LICENSE_REVIEW_2026-10-28.md",
+            "sha256": "a9acdb39768be95a89615e7cfaae68c5078acfbc5950d54005a8269079b95ffa"
+          },
+          {
+            "path": "third_party/licenses/DISTRIBUTION.txt",
+            "sha256": "845141a83c57e1b67d3f2898f65c94eb2b4667e3fcc8640121ab6f74fa083a8e"
+          },
+          {
+            "path": "third_party/licenses/component-notices/index.json",
+            "sha256": "494d480f53313bcfb39db4f29f2d937afb2132cc22a85ecb6a8f1d0a6c3012a5"
+          },
+          {
+            "path": "third_party/licenses/native-notices/index.json",
+            "sha256": "392d1e998dbb36c5dbf53bb77e7c0b1c4d39fb68b0584b7db2ab9597b43f242a"
+          }
+        ]
+      },
+      "findings": []
+    },
+    {
+      "coordinate": "androidx.graphics:graphics-path:1.0.1",
+      "aar_sha256": "8ca4032b6d79b351f0b59ad4b580eddbb9423e1652f7c958830687f1eee2ec03",
+      "security": {
+        "status": "REVIEWED",
+        "evidence": [
+          {
+            "path": "docs/NATIVE_LICENSE_REVIEW_2026-10-28.md",
+            "sha256": "a9acdb39768be95a89615e7cfaae68c5078acfbc5950d54005a8269079b95ffa"
+          }
+        ]
+      },
+      "licenses": {
+        "status": "REVIEWED",
+        "evidence": [
+          {
+            "path": "docs/NATIVE_LICENSE_REVIEW_2026-10-28.md",
+            "sha256": "a9acdb39768be95a89615e7cfaae68c5078acfbc5950d54005a8269079b95ffa"
+          },
+          {
+            "path": "third_party/licenses/DISTRIBUTION.txt",
+            "sha256": "845141a83c57e1b67d3f2898f65c94eb2b4667e3fcc8640121ab6f74fa083a8e"
+          },
+          {
+            "path": "third_party/licenses/component-notices/index.json",
+            "sha256": "494d480f53313bcfb39db4f29f2d937afb2132cc22a85ecb6a8f1d0a6c3012a5"
+          },
+          {
+            "path": "third_party/licenses/native-notices/index.json",
+            "sha256": "392d1e998dbb36c5dbf53bb77e7c0b1c4d39fb68b0584b7db2ab9597b43f242a"
+          }
+        ]
+      },
+      "findings": []
+    },
+    {
+      "coordinate": "org.jellyfin.media3:media3-ffmpeg-decoder:1.9.0+1",
+      "aar_sha256": "dfc726c8bc9d9db02e15b160f886a03bdd6dd51e88ba2de89aa74caf5e8cd181",
+      "security": {
+        "status": "REVIEWED",
+        "evidence": [
+          {
+            "path": "docs/NATIVE_LICENSE_REVIEW_2026-10-28.md",
+            "sha256": "a9acdb39768be95a89615e7cfaae68c5078acfbc5950d54005a8269079b95ffa"
+          }
+        ]
+      },
+      "licenses": {
+        "status": "REVIEWED",
+        "evidence": [
+          {
+            "path": "docs/NATIVE_LICENSE_REVIEW_2026-10-28.md",
+            "sha256": "a9acdb39768be95a89615e7cfaae68c5078acfbc5950d54005a8269079b95ffa"
+          },
+          {
+            "path": "third_party/licenses/DISTRIBUTION.txt",
+            "sha256": "845141a83c57e1b67d3f2898f65c94eb2b4667e3fcc8640121ab6f74fa083a8e"
+          },
+          {
+            "path": "third_party/licenses/component-notices/index.json",
+            "sha256": "494d480f53313bcfb39db4f29f2d937afb2132cc22a85ecb6a8f1d0a6c3012a5"
+          },
+          {
+            "path": "third_party/licenses/native-notices/index.json",
+            "sha256": "392d1e998dbb36c5dbf53bb77e7c0b1c4d39fb68b0584b7db2ab9597b43f242a"
+          }
+        ]
+      },
+      "findings": []
+    },
+    {
+      "coordinate": "org.videolan.android:libvlc-all:3.7.2",
+      "aar_sha256": "d320af15ec9ff7715db2c2506c9858b0df6d97aaae40fb84f74439bd26178367",
+      "security": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "licenses": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "findings": [
+        {
+          "id": "CVE-2026-64830",
+          "status": "REVIEW_REQUIRED",
+          "evidence": []
+        },
+        {
+          "id": "CVE-2026-64832",
+          "status": "REVIEW_REQUIRED",
+          "evidence": []
+        },
+        {
+          "id": "CVE-2026-64835",
+          "status": "REVIEW_REQUIRED",
+          "evidence": []
+        },
+        {
+          "id": "CVE-2026-65703",
+          "status": "REVIEW_REQUIRED",
+          "evidence": []
+        },
+        {
+          "id": "CVE-2026-65704",
+          "status": "REVIEW_REQUIRED",
+          "evidence": []
+        },
+        {
+          "id": "CVE-2026-66037",
+          "status": "REVIEW_REQUIRED",
+          "evidence": []
+        },
+        {
+          "id": "CVE-2026-66038",
+          "status": "REVIEW_REQUIRED",
+          "evidence": []
+        },
+        {
+          "id": "CVE-2026-66039",
+          "status": "REVIEW_REQUIRED",
+          "evidence": []
+        },
+        {
+          "id": "CVE-2026-66040",
+          "status": "REVIEW_REQUIRED",
+          "evidence": []
+        },
+        {
+          "id": "CVE-2026-8461",
+          "status": "REVIEW_REQUIRED",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "coordinate": "org.videolan.android:libvlc-all:3.7.2-idealplayer-remediation.2",
+      "aar_sha256": "6940e7cdf0c53a7c5875266a7dd5888e0e3374b10cf8da7496fbfdc50b208fba",
+      "security": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "licenses": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "findings": [
+        {
+          "id": "CVE-2026-64830",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-2-build.json",
+              "sha256": "b1b5eda23f9f23a34161142be3033da9db7c78acbfea7b1557660c069fa8122c"
+            },
+            {
+              "path": "third_party/native/sources.lock.json",
+              "sha256": "8ae37059b792c9c5dc87c688bf1693e61a29564b91371064d8b485a147f9329d"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64832",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-2-build.json",
+              "sha256": "b1b5eda23f9f23a34161142be3033da9db7c78acbfea7b1557660c069fa8122c"
+            },
+            {
+              "path": "third_party/native/sources.lock.json",
+              "sha256": "8ae37059b792c9c5dc87c688bf1693e61a29564b91371064d8b485a147f9329d"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64835",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-2-build.json",
+              "sha256": "b1b5eda23f9f23a34161142be3033da9db7c78acbfea7b1557660c069fa8122c"
+            },
+            {
+              "path": "third_party/native/sources.lock.json",
+              "sha256": "8ae37059b792c9c5dc87c688bf1693e61a29564b91371064d8b485a147f9329d"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65703",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-2-build.json",
+              "sha256": "b1b5eda23f9f23a34161142be3033da9db7c78acbfea7b1557660c069fa8122c"
+            },
+            {
+              "path": "third_party/native/sources.lock.json",
+              "sha256": "8ae37059b792c9c5dc87c688bf1693e61a29564b91371064d8b485a147f9329d"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65704",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-2-build.json",
+              "sha256": "b1b5eda23f9f23a34161142be3033da9db7c78acbfea7b1557660c069fa8122c"
+            },
+            {
+              "path": "third_party/native/sources.lock.json",
+              "sha256": "8ae37059b792c9c5dc87c688bf1693e61a29564b91371064d8b485a147f9329d"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66037",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-2-build.json",
+              "sha256": "b1b5eda23f9f23a34161142be3033da9db7c78acbfea7b1557660c069fa8122c"
+            },
+            {
+              "path": "third_party/native/sources.lock.json",
+              "sha256": "8ae37059b792c9c5dc87c688bf1693e61a29564b91371064d8b485a147f9329d"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66038",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-2-build.json",
+              "sha256": "b1b5eda23f9f23a34161142be3033da9db7c78acbfea7b1557660c069fa8122c"
+            },
+            {
+              "path": "third_party/native/sources.lock.json",
+              "sha256": "8ae37059b792c9c5dc87c688bf1693e61a29564b91371064d8b485a147f9329d"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66039",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-2-build.json",
+              "sha256": "b1b5eda23f9f23a34161142be3033da9db7c78acbfea7b1557660c069fa8122c"
+            },
+            {
+              "path": "third_party/native/sources.lock.json",
+              "sha256": "8ae37059b792c9c5dc87c688bf1693e61a29564b91371064d8b485a147f9329d"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66040",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-2-build.json",
+              "sha256": "b1b5eda23f9f23a34161142be3033da9db7c78acbfea7b1557660c069fa8122c"
+            },
+            {
+              "path": "third_party/native/sources.lock.json",
+              "sha256": "8ae37059b792c9c5dc87c688bf1693e61a29564b91371064d8b485a147f9329d"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70629",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-2-build.json",
+              "sha256": "b1b5eda23f9f23a34161142be3033da9db7c78acbfea7b1557660c069fa8122c"
+            },
+            {
+              "path": "third_party/native/sources.lock.json",
+              "sha256": "8ae37059b792c9c5dc87c688bf1693e61a29564b91371064d8b485a147f9329d"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70631",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-2-build.json",
+              "sha256": "b1b5eda23f9f23a34161142be3033da9db7c78acbfea7b1557660c069fa8122c"
+            },
+            {
+              "path": "third_party/native/sources.lock.json",
+              "sha256": "8ae37059b792c9c5dc87c688bf1693e61a29564b91371064d8b485a147f9329d"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-8461",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-2-build.json",
+              "sha256": "b1b5eda23f9f23a34161142be3033da9db7c78acbfea7b1557660c069fa8122c"
+            },
+            {
+              "path": "third_party/native/sources.lock.json",
+              "sha256": "8ae37059b792c9c5dc87c688bf1693e61a29564b91371064d8b485a147f9329d"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107660",
+          "status": "REVIEW_REQUIRED",
+          "evidence": []
+        },
+        {
+          "id": "CVE-2026-107695",
+          "status": "REVIEW_REQUIRED",
+          "evidence": []
+        },
+        {
+          "id": "CVE-2026-107697",
+          "status": "REVIEW_REQUIRED",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "coordinate": "org.videolan.android:libvlc-all:3.7.2-idealplayer-remediation.3",
+      "aar_sha256": "6c23a6bb5171d2d1768ee4a138997c73900cb36adfd36f5a92b466edbd33f32a",
+      "security": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "licenses": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "findings": [
+        {
+          "id": "CVE-2026-64830",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64832",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64835",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65703",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65704",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66037",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66038",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66039",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66040",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70629",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70631",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-8461",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107660",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107695",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/hls-remediation-3-regression.json",
+              "sha256": "e6c5484901bfb6f892f738c1cc22b631b87002fca24f58b0d90e614c34d0ac02"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107697",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/hls-remediation-3-regression.json",
+              "sha256": "e6c5484901bfb6f892f738c1cc22b631b87002fca24f58b0d90e614c34d0ac02"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "coordinate": "org.videolan.android:libvlc-all:3.7.2-idealplayer-remediation.4",
+      "aar_sha256": "e94e2fc02d754012d3e3c3f0e5d7aec29a3ee39560baf23002763547d6355334",
+      "security": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "licenses": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "findings": [
+        {
+          "id": "CVE-2026-64830",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64832",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64835",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65703",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65704",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66037",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66038",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66039",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66040",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70629",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70631",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-8461",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107660",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107695",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/hls-remediation-3-regression.json",
+              "sha256": "e6c5484901bfb6f892f738c1cc22b631b87002fca24f58b0d90e614c34d0ac02"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107697",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/hls-remediation-3-regression.json",
+              "sha256": "e6c5484901bfb6f892f738c1cc22b631b87002fca24f58b0d90e614c34d0ac02"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "coordinate": "org.videolan.android:libvlc-all:3.7.2-idealplayer-remediation.5",
+      "aar_sha256": "7d068c3dbc05f557c9eebdaaa4e03814a6bf62daa3a00e2dab70483c4bb170fb",
+      "security": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "licenses": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "findings": [
+        {
+          "id": "CVE-2026-64830",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64832",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64835",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65703",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65704",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66037",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66038",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66039",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66040",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70629",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70631",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-8461",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107660",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107695",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/hls-remediation-3-regression.json",
+              "sha256": "e6c5484901bfb6f892f738c1cc22b631b87002fca24f58b0d90e614c34d0ac02"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107697",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-3-build.json",
+              "sha256": "b3a89a4188f67b2f1ab7a4119fe79133fefba26ad165bf1b7e03163f94be3d58"
+            },
+            {
+              "path": "third_party/native/evidence/hls-remediation-3-regression.json",
+              "sha256": "e6c5484901bfb6f892f738c1cc22b631b87002fca24f58b0d90e614c34d0ac02"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-4-build.json",
+              "sha256": "4a5400912e1b4f3b9037ef7e9135c388a9b9c3b01cb4b2bfa89fbdd8fcf287e0"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-41989",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-5-build.json",
+              "sha256": "cb8f7ed03fa87e8cc4a9c2b87cc2718ae5f75ee701e6b067e3e1a09f321e4f66"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-5-runtime.json",
+              "sha256": "105f4dfa3ec01d2fa576c4b4edbe005890ed109253ec9985bf43cb9e7edf2065"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "coordinate": "org.videolan.android:libvlc-all:3.7.2-idealplayer-remediation.6",
+      "aar_sha256": "39e9a2f68ed672c551238229b916715303d8c620301946ecb38ec473729db192",
+      "security": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "licenses": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "findings": [
+        {
+          "id": "CVE-2026-64830",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64832",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64835",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65703",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65704",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66037",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66038",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66039",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66040",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70629",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70631",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-8461",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107660",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107695",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107697",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-41989",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66032",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-6-build.json",
+              "sha256": "e00e821efad7430c296049244521f834d2de2f0ef531875ed724ec3f238126e9"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-6-sftp.json",
+              "sha256": "de38522d19448b07a6d5cb90b809e7d3c52255d3bd64ee99f3c979b994272a7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "coordinate": "org.videolan.android:libvlc-all:3.7.2-idealplayer-remediation.7",
+      "aar_sha256": "41f9ff9c567aac83821d9e2f118881de684dd638f495df36e5d06e4f6625d9a9",
+      "security": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "licenses": {
+        "status": "REVIEW_REQUIRED",
+        "evidence": []
+      },
+      "findings": [
+        {
+          "id": "CVE-2026-64830",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64832",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64835",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65703",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65704",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66037",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66038",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66039",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66040",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70629",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70631",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-8461",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107660",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107695",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107697",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-41989",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66032",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2025-57632",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-110712",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-110713",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-110714",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-53689",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-57918",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-108985",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "coordinate": "org.videolan.android:libvlc-all:3.7.2-idealplayer-remediation.8",
+      "aar_sha256": "9028ee526d11d132b5e77e1d7abe3a696d04d3dd4eba16fb8965820a5b316d13",
+      "security": {
+        "status": "REVIEWED",
+        "evidence": [
+          {
+            "path": "docs/NATIVE_LICENSE_REVIEW_2026-10-28.md",
+            "sha256": "a9acdb39768be95a89615e7cfaae68c5078acfbc5950d54005a8269079b95ffa"
+          },
+          {
+            "path": "docs/VLC_TLS_RELEASE_2026-10-28.md",
+            "sha256": "15a0ab0abf5e48cbbf7f8de3dfb0104d86b4800d82fd064a52b7c4a7e3a82b94"
+          },
+          {
+            "path": "third_party/native/evidence/remediation-8-build.json",
+            "sha256": "0a1308beb0ffa11d28143c8e4a77302991800c398d52fad93f7ffd5beb51be72"
+          },
+          {
+            "path": "third_party/native/evidence/remediation-8-runtime.json",
+            "sha256": "56c67d99814ec943d7c6afce90457fcbfb7bbf3549a5b4d98f7721a914246734"
+          }
+        ]
+      },
+      "licenses": {
+        "status": "REVIEWED",
+        "evidence": [
+          {
+            "path": "docs/NATIVE_LICENSE_REVIEW_2026-10-28.md",
+            "sha256": "a9acdb39768be95a89615e7cfaae68c5078acfbc5950d54005a8269079b95ffa"
+          },
+          {
+            "path": "third_party/licenses/DISTRIBUTION.txt",
+            "sha256": "845141a83c57e1b67d3f2898f65c94eb2b4667e3fcc8640121ab6f74fa083a8e"
+          },
+          {
+            "path": "third_party/licenses/component-notices/index.json",
+            "sha256": "494d480f53313bcfb39db4f29f2d937afb2132cc22a85ecb6a8f1d0a6c3012a5"
+          },
+          {
+            "path": "third_party/licenses/native-notices/index.json",
+            "sha256": "392d1e998dbb36c5dbf53bb77e7c0b1c4d39fb68b0584b7db2ab9597b43f242a"
+          }
+        ]
+      },
+      "findings": [
+        {
+          "id": "CVE-2026-64830",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64832",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-64835",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65703",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-65704",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66037",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66038",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66039",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66040",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70629",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-70631",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-8461",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107660",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107695",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-107697",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-41989",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-66032",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2025-57632",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-110712",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-110713",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-110714",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-53689",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-57918",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-108985",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-7-build.json",
+              "sha256": "1a69f84248f0c88f0cd62a7c63197fda72a865b0822994fcc1f5018119f7cc59"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-7-network.json",
+              "sha256": "8c77bb093ef7be61fdea7d3e2d3dcc4cf7d7ff76ec490fbe20202a49e47d69f1"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2024-5171",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-8-build.json",
+              "sha256": "0a1308beb0ffa11d28143c8e4a77302991800c398d52fad93f7ffd5beb51be72"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-8-runtime.json",
+              "sha256": "56c67d99814ec943d7c6afce90457fcbfb7bbf3549a5b4d98f7721a914246734"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-46675",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-8-build.json",
+              "sha256": "0a1308beb0ffa11d28143c8e4a77302991800c398d52fad93f7ffd5beb51be72"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-8-runtime.json",
+              "sha256": "56c67d99814ec943d7c6afce90457fcbfb7bbf3549a5b4d98f7721a914246734"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-34757",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-8-build.json",
+              "sha256": "0a1308beb0ffa11d28143c8e4a77302991800c398d52fad93f7ffd5beb51be72"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-8-runtime.json",
+              "sha256": "56c67d99814ec943d7c6afce90457fcbfb7bbf3549a5b4d98f7721a914246734"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-33636",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-8-build.json",
+              "sha256": "0a1308beb0ffa11d28143c8e4a77302991800c398d52fad93f7ffd5beb51be72"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-8-runtime.json",
+              "sha256": "56c67d99814ec943d7c6afce90457fcbfb7bbf3549a5b4d98f7721a914246734"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-33416",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-8-build.json",
+              "sha256": "0a1308beb0ffa11d28143c8e4a77302991800c398d52fad93f7ffd5beb51be72"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-8-runtime.json",
+              "sha256": "56c67d99814ec943d7c6afce90457fcbfb7bbf3549a5b4d98f7721a914246734"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-25646",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-8-build.json",
+              "sha256": "0a1308beb0ffa11d28143c8e4a77302991800c398d52fad93f7ffd5beb51be72"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-8-runtime.json",
+              "sha256": "56c67d99814ec943d7c6afce90457fcbfb7bbf3549a5b4d98f7721a914246734"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-22801",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-8-build.json",
+              "sha256": "0a1308beb0ffa11d28143c8e4a77302991800c398d52fad93f7ffd5beb51be72"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-8-runtime.json",
+              "sha256": "56c67d99814ec943d7c6afce90457fcbfb7bbf3549a5b4d98f7721a914246734"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-22695",
+          "status": "FIXED",
+          "evidence": [
+            {
+              "path": "third_party/native/evidence/remediation-8-build.json",
+              "sha256": "0a1308beb0ffa11d28143c8e4a77302991800c398d52fad93f7ffd5beb51be72"
+            },
+            {
+              "path": "third_party/native/evidence/remediation-8-runtime.json",
+              "sha256": "56c67d99814ec943d7c6afce90457fcbfb7bbf3549a5b4d98f7721a914246734"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
